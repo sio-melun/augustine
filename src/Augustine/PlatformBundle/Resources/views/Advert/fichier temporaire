@@ -1,0 +1,75 @@
+
+                        <div id="testimonials" class="carousel slide" data-ride="carousel">
+
+                            <ol class="carousel-indicators">
+                                <li data-target="#testimonials" data-slide-to="0" class="active"></li>
+                                <li data-target="#testimonials" data-slide-to="1" class=""></li>
+                                <li data-target="#testimonials" data-slide-to="2" class=""></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item  active">
+                                    <div class="container center">
+                                        <div class="col-lg-12 col-md-12 slide-custom">
+                                            <span>
+                                                <h3><i class="fa fa-lightbulb-o " > Challenge EducEco</i></h3>
+                                                <p>
+                                                Le but de ce challenge est de consommer le moins d'&eacutenergie possible pour parcourir 17,14Km avec
+                                                une vitesse moyenne <!--space-->
+                                                minimum de 25Km/h. Une demie-journ&eacutee est r&eacuteserv&eacutee &agrave la d&eacutecouverte de la piste et aux essais
+                                                libres. Les <!--space-->
+                                                contraintes du circuit urbain ne sont pas celles d'une piste de circuits automobile ainsi, les
+                                                v&eacutehicules seront appel&eacutes <!--space-->
+                                                par groupes homog&egravene class&eacutes selon:
+                                                Le groupe des v&eacutehicules &eacuteco-citadins (tous vecteurs d'&eacutenergie)
+                                                Le groupe des v&eacutehicules prototypes thermiques (tous carburants)
+                                                Le groupe des v&eacutehicules prototype &eacutelectriques
+                                                Pour un acc&egraves au site de <a href="http://www.educeco.net/" target="_blank">challenge EducEco</a>.
+                                                </p>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="container center">
+                                        <div class="col-lg-12 col-md-12 slide-custom">
+                                            <span>
+                                                <h3><i class="fa fa-lightbulb-o " > Augustine</i></h3>
+                                                <p>
+                                                    Ce projet est née par l'association de deux lyc&eacutees. Le <a href="http://www.vinci-melun.org">lyc&eacutee L&eacuteonard de Vinci</a><!--space-->
+                                                    de Melun (BTS CPI et BAC Pro technicien d'usinage), qui se concentre sur la conception de la coque.
+                                                    <!--space-->
+                                                    Et le <a href="http://www.diderot.org">lycée Diderot</a> de Paris (BTS IRIS) qui se
+                                                    concentre sur la partie &eacutel&eacutectronique de la voiture.
+                                                </p>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="container center">
+                                        <div class="col-lg-12 col-md-12 slide-custom">
+                                            <span>
+                                                <h3><i class="fa fa-lightbulb-o " > Origine de ce nom</i></h3>
+                                                <p>
+                                                    Augustin... Augustine. Ce nom vient tout simplement de <a
+                                                    href="http://fr.wikipedia.org/wiki/Augustin_Mouchot" target="_blank">Augustin Mouchot</a>, l'homme
+                                                    qui a invent&eacute le capteur solaire.
+                                                </p>
+                                                <h3><i class="fa fa-lightbulb-o" > Association Tournesol</i></h3>
+                                                <p>
+                                                    Une association d’intérêt général. <!--space-->
+                                                    Tournesol, Artistes à l’Hôpital développe depuis 1990 une présence artistique dans une quarantaine d’hôpitaux de court, moyen et long séjour.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#testimonials" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#testimonials" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                            </a>
+                        </div>

@@ -1,0 +1,134 @@
+{# src/Augustine/PlatformBundle/Resources/views/Advert/history.html.twig #}
+
+{% extends "AugustinePlatformBundle::layout.html.twig" %}
+
+{% block title %}
+  Historique -{{ parent() }}
+{% endblock %}
+
+{% block augustineplatform_body %}
+    
+    <!--./ HISTORY SECTION -->
+    <div id="help" >
+        <div class="overlay">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+                        <h2 data-wow-delay="0.3s" class="wow rollIn animated"><strong>Historique</strong></h2>
+                        <!--<p class="sub-head"> Le projet évolue ! </p>-->
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 wow bounceInDown animated" style="padding: 10px;" data-wow-delay="0.9s"   >
+                    <!--<div id="carousel-slider" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item">
+                                <img src="{{asset('bundles/augustineplatform/img/slider/2011.jpg')}}" class="img-thumbnail" alt="Premier projet r&eacutealis&eacute par le Lyc&eacutee L&eacuteonard de Vinci; toujours en partenariat avec le Lyc&eacutee Diderot.">                           
+                            </div>
+                            <div class="item">
+                                <img src="{{asset('bundles/augustineplatform/img/slider/2012.jpg')}}" class="img-thumbnail" alt="Second projet &eacutegalement en partenariat avec le Lyc&eacutee Diderot. Il s'agit de la premi&egravere version d'Augustine.">
+                            
+                            </div>
+                            <div class="item active">
+                                <img src="{{asset('bundles/augustineplatform/img/slider/2013.jpg')}}" class="img-thumbnail" alt="Toisi&egraveme projet sous le nom d'Augustine II.">                          
+                            </div>
+                        </div>
+                        <!--INDICATORS--
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-slider" data-slide-to="0" class=""></li>
+                            <li data-target="#carousel-slider" data-slide-to="1" class=""></li>
+                            <li data-target="#carousel-slider" data-slide-to="2" class="active"></li>
+                        </ol>
+                    </div>-->
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                          <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Augustine #1
+                              </a>
+                            </h4>
+                          </div>
+                          <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                              <img src="{{asset('bundles/augustineplatform/img/slider/2012.jpg')}}" class="img-thumbnail" alt="">
+                            </div>
+                            <div class="panel-body">
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="panel panel-default">
+                          <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                              <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Augustine #2
+                              </a>
+                            </h4>
+                          </div>
+                          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="panel panel-default">
+                          <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                              <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Actu banal #1
+                              </a>
+                            </h4>
+                          </div>
+                          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <!--<div class="col-lg-4 col-md-4">
+                    <div class="media wow rotateIn animated" data-wow-delay="0.4s">
+                        <div class="pull-left">
+                            <i class="fa fa-star-o fa-4x  "></i>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">2011</h3>
+                            <p>
+                                Premier projet r&eacutealis&eacute par le Lyc&eacutee L&eacuteonard de Vinci; toujours en partenariat avec le Lyc&eacutee Diderot.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="media wow rotateIn animated" data-wow-delay="0.5s">
+                        <div class="pull-left">
+                            <i class="fa fa-life-ring fa-4x  "></i>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">2012</h3>
+                            <p>
+                                Second projet &eacutegalement en partenariat avec le Lyc&eacutee Diderot. Il s'agit de la premi&egravere version d'Augustine.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="media wow rotateIn animated" data-wow-delay="0.5s">
+                        <div class="pull-left">
+                            <i class="fa fa-lightbulb-o fa-5x  "></i>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">2013</h3>
+                            <p>
+                                Toisi&egraveme projet sous le nom d'Augustine II.
+                            </p>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <!--./ HISTORY SECTION END -->
+    
+    <a href="{{ path('augustine_platform_home') }}" class="btn btn-default">
+        Retour à l'acceuil
+    </a>
+    
+{% endblock %}

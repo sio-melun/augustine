@@ -1,0 +1,4 @@
+augustine_platform:
+    resource: "@AugustinePlatformBundle/Resources/config/routing.yml"
+    prefix:   /
+

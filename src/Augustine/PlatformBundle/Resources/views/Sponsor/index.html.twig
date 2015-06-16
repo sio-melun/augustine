@@ -1,0 +1,49 @@
+{# src/Augustine/PlatformBundle/Resources/views/Sponsor/index.html.twig #}
+
+{% extends "AugustinePlatformBundle::layout.html.twig" %}
+
+{% block title %}
+  Sponsor -{{ parent() }}
+{% endblock %}
+
+{% block augustineplatform_body %}
+     <!--./ SPONSOR SECTION -->
+      <div id="sponsor" class="pad-top-botm" >
+        <div class="container">
+            <div class="row text-center ">
+                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+                    <h2 data-wow-delay="0.3s" class="wow rollIn animated"><strong>SPONSORS </strong></h2>
+                    <br/>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-4 col-md-4 col-sm-4 ">
+                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.4s">
+                        <img src="{{asset('bundles/augustineplatform/img/sponsor/Advixys.jpg')}}" class="img-responsive" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 ">
+                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.5s">
+                        <img src="{{asset('bundles/augustineplatform/img/sponsor/Decathlon.jpg')}}" class="img-responsive" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 ">
+                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.6s">
+                        <img src="{{asset('bundles/augustineplatform/img/sponsor/Eauridis.jpg')}}" class="img-responsive" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 ">
+                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.7s">
+                        <img src="{{asset('bundles/augustineplatform/img/sponsor/Kartland.jpg')}}" class="img-responsive" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--./ SPONSOR SECTION END -->
+    
+    <a href="{{ path('augustine_platform_home') }}" class="btn btn-default">
+      Retour à l'acceuil
+    </a>
+    
+{% endblock %}

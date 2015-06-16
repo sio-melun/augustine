@@ -1,0 +1,7 @@
+parameters:
+#    augustine_platform.example.class: Augustine\PlatformBundle\Example
+
+services:
+#    augustine_platform.example:
+#        class: %augustine_platform.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
