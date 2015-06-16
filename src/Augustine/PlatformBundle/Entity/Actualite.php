@@ -66,7 +66,7 @@ class Actualite
     /**
      * @ORM\ManyToOne(targetEntity="Augustine\PlatformBundle\Entity\TypeActu")
      */
-    private $TypeActu;
+    private $typeActu;
 
 
     /**
@@ -215,5 +215,29 @@ class Actualite
     public function getNomRessource()
     {
         return $this->nomRessource;
+    }
+
+
+    /**
+     * Set typeActu
+     *
+     * @param \Augustine\PlatformBundle\Entity\TypeActu $typeActu
+     * @return Actualite
+     */
+    public function setTypeActu(\Augustine\PlatformBundle\Entity\TypeActu $typeActu = null)
+    {
+        $this->typeActu = $typeActu;
+    
+        return $this;
+    }
+
+    /**
+     * Get typeActu
+     *
+     * @return \Augustine\PlatformBundle\Entity\TypeActu 
+     */
+    public function getTypeActu()
+    {
+        return $this->typeActu;
     }
 }
