@@ -1,6 +1,6 @@
 augustine_platform_home:
-    path:      /index/{page}
-    defaults:  { _controller: AugustinePlatformBundle:Advert:index, page : 1 }
+    path:      /index
+    defaults:  { _controller: AugustinePlatformBundle:Advert:index }
 
 augustine_platform_history:
     path:      /historique/{page}
@@ -9,3 +9,11 @@ augustine_platform_history:
 augustine_platform_sponsor:
     path: /sponsors
     defaults: { _controller: AugustinePlatformBundle:Sponsor:index }
+    
+augustine_platform_ajouter:
+    path:      /ajouter
+    defaults:  { _controller: AugustinePlatformBundle:Advert:ajouter }
+    
+augustine_platform_etablissements:
+    path:      /etablissements
+    defaults:  { _controller: AugustinePlatformBundle:Advert:etablissements }

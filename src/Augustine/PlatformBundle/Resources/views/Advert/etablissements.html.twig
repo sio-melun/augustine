@@ -1,0 +1,28 @@
+{# src/Augustine/PlatformBundle/Resources/views/Advert/etablissements.html.twig #}
+
+{% extends "AugustinePlatformBundle::layout.html.twig" %}
+
+{% block title %}
+    Etablissements -{{ parent() }}
+{% endblock %}
+
+{% block augustineplatform_body %}
+    <h1>Voici les établissements à l'honneur</h1>
+    <article>
+        <div>
+            <div class='col-lg-6 col-sm-6 col-sm-6'>
+                <img src="{{asset('bundles/augustineplatform/img/img/ldv.jpg')}}" class="img-responsive" alt="" title='Lycée Léonard de Vinci'>
+            </div>
+            <div class='col-lg-6 col-sm-6 col-sm-6'>
+                <img src="{{asset('bundles/augustineplatform/img/img/diderot.jpg')}}" class="img-responsive" alt="" title='Lycée Diderot'>
+            </div>
+            <div>
+                <p>D'une part vous avez le lycée Léonard de Vinci (à droite) et le Lycée Diderot (à gauche)</p>
+            </div>
+        </div>
+    </article>
+    <a href="{{ path('augustine_platform_home') }}" class="btn btn-default">
+        Retour à l'acceuil
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{# src/Augustine/PlatformBundle/Resources/views/Advert/ajouter.html.twig #}
+
+{% extends "AugustinePlatformBundle::layout.html.twig" %}
+
+{% block title %}
+    Ajouter -{{ parent() }}
+{% endblock %}
+
+{% block augustineplatform_body %}
+
+    <div class="col-lg-offset-4 col-md-offset-6 col-sm-offset-4">
+        <div id="ajout" class="pad-top-botm">
+            <h2>Ajout d'une Annonce</h2>
+            <form action="{{ path ('augustine_platform_ajouter') }}" method ="post">
+                {{ form_widget(form) }}
+
+                <input type="submit">
+                <input type="reset" />
+            </form>
+        </div>
+    </div>
+    <a href="{{ path('augustine_platform_home') }}" class="btn btn-default">
+        Retour à l'acceuil
+    </a>
+{% endblock %}

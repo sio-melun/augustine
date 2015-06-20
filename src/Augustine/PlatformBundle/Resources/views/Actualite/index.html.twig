@@ -1,0 +1,40 @@
+{% extends 'AugustinePlatformBundle::layout.html.twig' %}
+
+{% block title %}
+  Accueil -{{ parent() }}
+{% endblock %}
+
+{% block augustineplatform_body %}
+<h1>Actualite list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Texte</th>
+                <th>Dateactu</th>
+                <th>Datecrea</th>
+                <th>Ishisto</th>
+                <th>Nomressource</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.titre }}</td>
+                <td>{{ entity.texte }}</td>
+                <td>{% if entity.dateActu %}{{ entity.dateActu|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateCrea %}{{ entity.dateCrea|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.isHisto }}</td>
+                <td>{{ entity.nomRessource }}</td>
+                <td>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}

@@ -48,11 +48,16 @@ class Actualite
      * @ORM\Column(name="dateCrea", type="date")
      */
     private $dateCrea;
+    
+    
+    function __construct() {
+        $this->dateCrea = new \DateTime();
+    }
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="isHisto", type="boolean")
+     * @ORM\Column(name="isHisto", type="boolean", nullable=true)
      */
     private $isHisto;
 
