@@ -7,488 +7,242 @@
 {% endblock %}
 
 {% block augustineplatform_body %}
-    <!--<div id="home" >
-        <div class="overlay">
-            <div class="container">
-                <div class="row ">
-                    <div class="col-lg-15 col-md-12 head-text">
-                        <h1 id="divDisp" data-wow-delay="0.9s" class="wow rollIn animated">Augustine II</h1>
-                        <div class="col-lg-15 col-md-15 head-text">
-                            <span>
-                                <i class="fa fa-lightbulb-o" > Challenge EducEco</i>
-                                    <p>
-                                    Le but de ce challenge est de consommer le moins d'&eacutenergie possible pour parcourir 17,14Km avec
-                                    une vitesse moyenne <!--space
-                                    minimum de 25Km/h. Une demie-journ&eacutee est r&eacuteserv&eacutee &agrave la d&eacutecouverte de la piste et aux essais
-                                    libres. Les <!--space
-                                    contraintes du circuit urbain ne sont pas celles d'une piste de circuits automobile ainsi, les
-                                    v&eacutehicules seront appel&eacutes <!--space
-                                    par groupes homog&egravene class&eacutes selon:
-                                    <br/>
-                                    Le groupe des v&eacutehicules &eacuteco-citadins (tous vecteurs d'&eacutenergie)
-                                    <br/>
-                                    Le groupe des v&eacutehicules prototypes thermiques (tous carburants)
-                                    <br/>
-                                    Le groupe des v&eacutehicules prototype &eacutelectriques
-                                    <br/>
-                                    Pour un acc&egraves au site de <a href="http://www.educeco.net/" target="_blank">challenge EducEco</a>
-                                    </p>
-                            </span>
+
+    <!-- /.SECTION HOME -->
+    <div id="home">
+        <div class="container">
+            <div class="row">
+                <div class="box">
+                    <div class="col-lg-12 text-center">
+                        <div class="col-lg-3 col-md-3 col-sm-3 ">
+                            <a href="{{ path('augustine_platform_home') }}#actualite">
+                                <img src="{{asset('bundles/augustineplatform/img/banniere/rougeF.jpg')}}" class="img-responsive" alt="" />
+                            </a>
                         </div>
-                        <div class="col-lg-15 col-md-4 head-text">
-                            <span >
-                                <i class="fa fa-lightbulb-o " > Augustine</i>
-                                    <p>
-                                    Ce projet est née par l'association de deux lyc&eacutees. Le <a href="http://www.vinci-melun.org">lyc&eacutee L&eacuteonard de Vinci</a><!--space
-                                    de Melun (BTS CPI et BAC Pro technicien d'usinage), qui se concentre sur la conception de la coque.
-    <!--space
-    Et le <a href="http://www.diderot.org">lycée Diderot</a> de Paris (BTS IRIS) qui se
-    concentre sur la partie &eacutel&eacutectronique de la voiture.
-    </p>
-</span>
-</div>
-<div class="col-lg-15 col-md-4 head-text">
-<span >
-<i class="fa fa-lightbulb-o " > Origine de ce nom</i>
-    <p>
-    Augustin... Augustine. Ce nom vient tout simplement de <a
-    href="http://fr.wikipedia.org/wiki/Augustin_Mouchot" target="_blank">Augustin Mouchot</a>, l'homme
-    qui a invent&eacute le capteur solaire.
-    </p>
-</span>
-</div>
-<div class="col-lg-15 col-md-4 head-text">
-<span>
-<i class="fa fa-lightbulb-o" > Association Tournesol</i>
-<p>
-Une association d’intérêt général. <!--space
-Tournesol, Artistes à l’Hôpital développe depuis 1990 une présence artistique dans une quarantaine d’hôpitaux de court, moyen et long séjour.
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>-->
-    <!--./ HOME SECTION END -->
-    <!-- ;/ SECTION BANNIERE -->
-    <div id="index" class="pad-top-botm">
-        <div class="row text-center ">
-            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                <h2 data-wow-delay="0.3s" class="wow rollIn animated"><strong>ACCUEIL </strong></h2><br/>
-            </div>
-        </div>
-        <div class="row ">
-            <div class="col-lg-3 col-md-3 col-sm-3 ">
-                <a href="{{ path('augustine_platform_home') }}#about">
-                    <img src="{{asset('bundles/augustineplatform/img/banniere/rougeF.jpg')}}" class="img-responsive" alt="" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 ">
-                <a href="{{ path('augustine_platform_etablissements') }}">
-                    <img src="{{asset('bundles/augustineplatform/img/banniere/vertF.jpg')}}" class="img-responsive" alt="" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 ">
-                <a href="{{ path('augustine_platform_sponsor') }}">                       
-                    <img src="{{asset('bundles/augustineplatform/img/banniere/jauneF.jpg')}}" class="img-responsive" alt="" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 ">
-                <a href="">                        
-                    <img src="{{asset('bundles/augustineplatform/img/banniere/bleuF.jpg')}}" class="img-responsive" alt="" />
-                </a>
+                        <div class="col-lg-3 col-md-3 col-sm-3 ">
+                            <a href="{{ path('augustine_platform_home') }}#etablissement">
+                                <img src="{{asset('bundles/augustineplatform/img/banniere/vertF.jpg')}}" class="img-responsive" alt="" />
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 ">
+                            <a href="{{ path('augustine_platform_sponsor') }}">                       
+                                <img src="{{asset('bundles/augustineplatform/img/banniere/jauneF.jpg')}}" class="img-responsive" alt="" />
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 ">
+                            <a href="{{ path('augustine_platform_home') }}#objectif">                        
+                                <img src="{{asset('bundles/augustineplatform/img/banniere/bleuF.jpg')}}" class="img-responsive" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!--./ BANNIERE SECTION END-->
-    <!-- ACTUALITE SECTION -->
-    <div id="about" >
+    <!-- /.SECTION HOME END -->
+
+    <!-- /.SECTION ETABLISSEMENT -->
+    <div id="etablissement">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 sub-head">
-                    <h2  data-wow-delay="0.9s" class="wow rollIn animated" ><strong>Actualités </strong></h2>
-                    <!--<p class="sub-head">Un peu de news... </p>-->
+            <div class="row">
+                <div class="box">
+                    <div class="col-lg-12 text-center">
+                        <hr>
+                        <h2 class="intro-text text-center">
+                            <strong>Les établissements partenaires :</strong> Etablissement
+                        </h2>
+                        <hr>
+                        <img class="img-responsive img-border-left" src="{{asset('bundles/augustineplatform/img/sponsor/diderot.jpg')}}" alt="">
+                        <hr class="visible-xs">
+                        <p>Le projet Augustine est propulsé par deux Lycées. Une qui se trouve à Melun, le <a href="http://www.vinci-melun.org/" target="_blank">lycéée Léonard de Vinci</a> ainsi que le <a href="http://www.diderot.org/index.php" target="_blank"> lycée Diderot </a> à Paris.</p>
+                        <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                        <img class="img-responsive img-border-left" src="{{asset('bundles/augustineplatform/img/sponsor/LDV.jpg')}}" alt="">
+                    </div>
                 </div>
             </div>
-            <div class="row ">
-                <div class="media wow rotateIn animated" data-wow-delay="0.2s">
-                    {% for actualite in actualite %}
-                        {% if null == actualite.isHisto %}
-                            <div class="col-lg-3 col-md-3 col-sm-3">
+        </div>
+    </div>
+    <!-- /.SECTION ETABLISSEMENT END -->
 
-                                <article>
-                                    <header>
-                                        <h2>{{ actualite.titre }}</h2> 
-                                        <h5>{{ actualite.nomRessource }}, relatant du : {{ actualite.dateActu|date('d M Y') }}</h5>
-                                    </header>
-                                    <div class="content">
-                                        <p>
+    <!-- /.SECTION OBJECTIF -->
+    <div id="objectif">
+        <div class="container">
+            <div class="row">
+                <div class="box">
+                    <div class="col-lg-12 text-center">
+                        <hr>
+                        <h2 class="intro-text text-center">
+                            <strong>Les buts du projet :</strong> Nos objectifs
+                        </h2>
+                        <hr>
+                        <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.SECTION OBJECTIF END -->
+
+    <!-- /.SECTION ACTUALITE -->
+    <div id="actualite">
+        <div class="container">
+            <div class="row">
+                <div class="box">
+                    <div class="col-lg-12 text-center">
+                        <hr>
+                        <h2 class="intro-text text-center">
+                            <strong>Nos derniers évènements :</strong> Actualite
+                        </h2>
+                        <hr>
+                        <!--<div class="col-md-6">
+                            <img class="img-responsive img-border-left" src="{{asset('bundles/augustineplatform/img/slide-2.jpg')}}" alt="">
+                        </div>-->
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            {% for actualite in actualite %}
+                                {% if null == actualite.isHisto %}
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="heading{{actualite.id}}">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{actualite.id}}" aria-expanded="false" aria-controls="collapse{{actualite.id}}">
+                                                    Titre : {{ actualite.titre }} | Type : {{ actualite.nomRessource }} |{{actualite.id}}| Relatant du : {{ actualite.dateActu|date('d M Y') }} | Paru le : {{ actualite.dateCrea|date('d M Y') }}
+                                                 </a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div id="collapse{{actualite.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{actualite.id}}">
+                                        <div class="panel-body">
                                             {{ actualite.texte }}
-                                        </p>
-                                        <time>paru le, {{ actualite.dateCrea|date('d M Y') }}</time>
-                                    </div>
-                                </article>      
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="row pad-top-botm wow flipInX animated" data-wow-delay="0.7s">
-                <div class="col-lg-8 col-md-8 col-sm-8 " >
-                    <form>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                            Commenter ?
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel"><strong>Commentaire</strong></h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                        <button type="button" class="btn btn-primary">Envoyer</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--<h3><strong>Commentaire ?</strong></h3>
-                        <form>
-                             Si l'utilisateur est connecté, alors son pseudo sera entré directement, sinon 'Pseudonyme' sera la valeur par défaut. -->
-                        <!--<input type="text" name="com_user" value="<?php echo $user ?>">--
-                        <!-- Permet de noter l'actualité de 1 à 5--
-                        <p>
-                        Qu'elle actualité ? <select name="num_actu">
-                        <option value="1" selected="selected">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        </select> / 4  -- 
-                        Notez cette actualité : <select name="com_note">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3" selected="selected">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        </select> / 5
-                        </p>
-                        <div class="form-group">
-                            <textarea name="com"  required="required" data-wow-delay="0.7s" class="wow rotateIn animated form-control" style="min-height: 150px;" placeholder="Commentaire"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-success btn-block btn-lg wow rotateIn animated " data-wow-delay="0.8s">Valider</button>
-                        </div>
-                        <!-- Bouton pour soumettre son commentaire -->
-                    </form>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 text-center" >
-                    <i class="fa fa-lightbulb-o big-icon "></i>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--./ ACTUALITE SECTION END -->
-    <!--./ AFFICHAGE COMMENTAIRE SECTION --><!--
-    <div class="donars-section">
-        <div class="overlay">
-            <div class="container">
-                <div class="row ">
-                    <div class="col-lg-12 col-md-12 ">
-                        <div id="testimonials" class="carousel slide" data-ride="carousel">
-
-                            <ol class="carousel-indicators">
-                                <li data-target="#testimonials" data-slide-to="0" class=""></li>
-                                <li data-target="#testimonials" data-slide-to="1" class=""></li>
-                                <li data-target="#testimonials" data-slide-to="2" class="active"></li>
-                            </ol>
-
-                            <div class="carousel-inner">
-                                <div class="item">
-                                    <div class="container center">
-                                        <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 slide-custom">
-
-                                            <h4><i class="fa fa-quote-left"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit onec molestie non sem vel condimentum. <i class="fa fa-quote-right"></i></h4>
-                                            <div class="user-img pull-right">
-                                                <img src="{{asset('bundles/augustineplatform/img/user2.png')}}" alt="" class="img-circle image-responsive">
-                                            </div>
-                                            <h5 class="pull-right"><strong class="c-black">Lorem Dolor</strong></h5>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="item">
-                                    <div class="container center">
-                                        <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 slide-custom">
-                                            <h4><i class="fa fa-quote-left"></i>Aenean faucibus luctus enim. Duis quis sem risu suspend lacinia elementum nunc. <i class="fa fa-quote-right"></i></h4>
-                                            <div class="user-img pull-right">
-                                                <img src="{{asset('bundles/augustineplatform/img/user.gif')}}" alt="" class="img-circle image-responsive">
-                                            </div>
-                                            <h5 class="pull-right"><strong class="c-black">Faucibus luctus</strong></h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item active">
-                                    <div class="container center">
-                                        <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 slide-custom">
-                                            <h4><i class="fa fa-quote-left"></i>Sed ultricies, libero ut adipiscing fringilla, ante elit luctus lorem, a egestas dui metus a arcu condimentum. <i class="fa fa-quote-right"></i></h4>
-                                            <div class="user-img pull-right">
-                                                <img src="{{asset('bundles/augustineplatform/img/user2.png')}}" alt="" class="img-circle image-responsive">
-                                            </div>
-                                            <h5 class="pull-right"><strong class="c-black">Sed ultricies</strong></h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    <!--./ AFFICHAGE COMMENTAIRE SECTION END-->
-    <!--./ GALERIE SECTION -->
-    <!--<div id="port-folio" class="pad-top-botm" >
-        <div class="container">
-            <div class="row text-center ">
-                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                    <h2 data-wow-delay="0.3s" class="wow rollIn animated"><strong>GALERIE </strong></h2>
-                    <p class="sub-head">Voici quelques images de moment important du projet.</p>
-                </div>
-            </div>
-            <div class="row ">
-                <div class="col-lg-4 col-md-4 col-sm-4 ">
 
-                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.4s">
-
-
-                        <img src="{{asset('bundles/augustineplatform/img/portfolio/aug1.jpg')}}" class="img-responsive" alt="" />
-                        <div class="overlay">
-                            <p>
-                                <span>
-                                Taille Image: 750x500
-                                </span>
-                               
-                                Projet Augustine
-                            </p>
-                            <a class="preview" title="Image Title Here" href="{{asset('bundles/augustineplatform/img/portfolio/aug1.jpg')}}"><i class="fa fa-search-plus fa-5x"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 ">
-
-                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.5s">
-
-
-                        <img src="{{asset('bundles/augustineplatform/img/portfolio/aug2.jpg')}}" class="img-responsive" alt="" />
-                        <div class="overlay">
-                            <p>
-                                <span>
-                                Taille Image: 750x500
-                                </span>
-                               
-                                Projet Augustine
-                            </p>
-                            <a class="preview " title="Image Title Here" href="{{asset('bundles/augustineplatform/img/portfolio/aug2.jpg')}}"><i class="fa fa-search-plus fa-5x"></i></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 ">
-
-                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.6s">
-
-
-                        <img src="{{asset('bundles/augustineplatform/img/portfolio/aug3.jpg')}}" class="img-responsive" alt="" />
-                        <div class="overlay">
-                          <p>
-                                <span>
-                                Taille Image: 750x500
-                                </span>
-                               
-                                Projet Augustine
-                            </p>
-                            <a class="preview " title="Image Title Here" src="{{asset('bundles/augustineplatform/img/portfolio/aug3.jpg')}}"><i class="fa fa-search-plus fa-5x"></i></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 ">
-
-                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.7s">
-
-
-                        <img src="{{asset('bundles/augustineplatform/img/portfolio/aug4.jpg')}}" class="img-responsive" alt="" />
-                        <div class="overlay">
-                           <p>
-                                <span>
-                                Taille Image: 750x500
-                                </span>
-                               
-                                Projet Augustine
-                            </p>
-                            <a class="preview" title="Image Title Here" href="{{asset('bundles/augustineplatform/img/portfolio/aug4.jpg')}}"><i class="fa fa-search-plus fa-5x"></i></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 ">
-
-                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.8s">
-
-
-                        <img src="{{asset('bundles/augustineplatform/img/portfolio/aug5.jpg')}}" class="img-responsive" alt="" />
-                        <div class="overlay">
-                            <p>
-                                <span>
-                                Taille Image: 750x500
-                                </span>
-                               
-                                Projet Augustine
-                            </p>
-                            <a class="preview" title="Image Title Here" href="{{asset('bundles/augustineplatform/img/portfolio/aug5.jpg')}}"><i class="fa fa-search-plus fa-5x"></i></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 ">
-                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.9s">
-                        <img src="{{asset('bundles/augustineplatform/img/portfolio/aug6.jpg')}}" class="img-responsive" alt="" />
-                        <div class="overlay">
-                          <p>
-                                <span>
-                                Taille Image: 750x500
-                                </span>
-                               
-                                Projet Augustine
-                            </p>
-                            <a class="preview" title="Image Title Here" href="{{asset('bundles/augustineplatform/img/portfolio/aug6.jpg')}}"><i class="fa fa-search-plus fa-5x"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 ">
-                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.9s">
-                        <img src="{{asset('bundles/augustineplatform/img/portfolio/aug7.jpg')}}" class="img-responsive" alt="" />
-                        <div class="overlay">
-                          <p>
-                                <span>
-                                Taille Image: 750x500
-                                </span>
-                               
-                                Projet Augustine
-                            </p>
-                            <a class="preview " title="Image Title Here" href="{{asset('bundles/augustineplatform/img/portfolio/aug7.jpg')}}"><i class="fa fa-search-plus fa-5x"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 ">
-                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.9s">
-                        <img src="{{asset('bundles/augustineplatform/img/portfolio/aug8.jpg')}}" class="img-responsive" alt="" />
-                        <div class="overlay">
-                          <p>
-                                <span>
-                                Taille Image: 750x500
-                                </span>
-                               
-                                Projet Augustine
-                            </p>
-                            <a class="preview" title="Image Title Here" href="{{asset('bundles/augustineplatform/img/portfolio/aug8.jpg')}}"><i class="fa fa-search-plus fa-5x"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    <!--./ GALERIE SECTION END -->
-
-    <!--./ SPONSOR SECTION -->
-    <!--<div id="sponsor" class="pad-top-botm" >
-        <div class="container">
-            <div class="row text-center ">
-                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                    <h2 data-wow-delay="0.3s" class="wow rollIn animated"><strong>SPONSOR </strong></h2>
-                    <br/>
-                </div>
-            </div>
-            <div class="row ">
-                <div class="col-lg-4 col-md-4 col-sm-4 ">
-                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.4s">
-                        <img src="{{asset('bundles/augustineplatform/img/sponsor/Advixys.jpg')}}" class="img-responsive" alt="" />
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 ">
-                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.5s">
-                        <img src="{{asset('bundles/augustineplatform/img/sponsor/Decathlon.jpg')}}" class="img-responsive" alt="" />
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 ">
-                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.6s">
-                        <img src="{{asset('bundles/augustineplatform/img/sponsor/Eauridis.jpg')}}" class="img-responsive" alt="" />
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 ">
-                    <div class="portfolio-item wow rotateIn animated" data-wow-delay="0.7s">
-                        <img src="{{asset('bundles/augustineplatform/img/sponsor/Kartland.jpg')}}" class="img-responsive" alt="" />
+                    <div class="clearfix">     
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--./ SPONSOR SECTION END -->
-    <!--./ CONTACT SECTION -->
-    <div id="contact" >
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                    <h2 data-wow-delay="0.3s" class="wow rollIn animated"><strong>Contact </strong></h2>
-                    <p class="sub-head">Si vous souhaitez d'autres renseignements ou bien nous faire parvenir vos avis</p>
+    <!-- /.SECTION ACTUALITE END -->
 
-                    <p class="sub-head  wow rotateIn animated" data-wow-delay="0.4s"><strong>Adresse :</strong> Rue Edouard Branly, Melun 77000</p>
-                </div>
-            </div>
-            <div class="row  text-center wow rotateIn animated" data-wow-delay="0.4s">
-                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                    <a href="http://facebook.com/projetaugustinemelun">  <img src="{{asset('bundles/augustineplatform/img/Social/facebook.png')}}" alt="" /> </a>
-                    <a href="#"> <img src="{{asset('bundles/augustineplatform/img/Social/google-plus.png')}}" alt="" /></a>
-                    <a href="http://twitter.com/ProjetAugustine"> <img src="{{asset('bundles/augustineplatform/img/Social/twitter.png')}}" alt="" /></a>
-                </div>
-            </div>
-            <div class="row pad-top-botm">
-                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                    <form action="index.php" method="POST">
-                        <div class="form-group">
-                            <select class="form-control" name="civilite" value="">
-                                <option>Mr</option>
-                                <option>Mme</option>
-                                <option>Mlle</option>
-                            </select>
+    <!-- /.SECTION OTHER -->
+    <div id="autre">
+        <div class="container">
+            <div class="row">
+                <div class="box">
+                    <div class="col-lg-12 text-center">
+                        <hr>
+                        <h2 class="intro-text text-center">Page
+                            <strong> Autre</strong>
+                        </h2>
+                        <hr>
+                        <div class="col-sm-4 text-center">
+                            <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                            <h3>John Smith
+                                <small>Job Title</small>
+                            </h3>
                         </div>
-                        <div class="form-group">
-                            <input type="text" name="nom" class="form-control wow rotateIn animated" data-wow-delay="0.5s" required="required" placeholder="Nom">
+                        <div class="col-sm-4 text-center">
+                            <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                            <h3>John Smith
+                                <small>Job Title</small>
+                            </h3>
                         </div>
-                        <div class="form-group">
-                            <input type="text" name="prenom" class="form-control wow rotateIn animated" required="required" data-wow-delay="0.6s" placeholder="Prenom">
-                        </div> 
-                        <div class="form-group">
-                            <input type="text" name="objet" class="form-control wow rotateIn animated" required="required" data-wow-delay="0.6s" placeholder="Objet">
+                        <div class="col-sm-4 text-center">
+                            <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                            <h3>John Smith
+                                <small>Job Title</small>
+                            </h3>
                         </div>
-                        <div class="form-group">
-                            <textarea name="message"  required="required" data-wow-delay="0.7s" class="wow rotateIn animated form-control" style="min-height: 150px;" placeholder="Message"></textarea>
+                        <div class="clearfix">
+
                         </div>
-                        <div class="form-group">
-                            <button type="submit" name="Envoyer" class="btn btn-success btn-block btn-lg wow rotateIn animated " data-wow-delay="0.8s" >Valider</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--./ CONTACT SECTION END -->
+    <!-- /.SECTION OTHER END -->
+
+    <!-- /.SECTION CONTACT P1 -->
+    <div id="contact">
+        <div class="container">
+            <!-- /.PART 1 -->
+            <div class="row">
+                <div class="box">
+                    <div class="col-lg-12">
+                        <hr>
+                        <h2 class="intro-text text-center">Contact
+                            <strong>business casual</strong>
+                        </h2>
+                        <hr>
+
+                        <div class="col-md-8">
+                            <!-- Embedded Google Map using an iframe - to select your location find it on Google maps and paste the link as the iframe src. If you want to use the Google Maps API instead then have at it! -->
+                            <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=56.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"></iframe>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Phone:
+                                <strong>06.95.12.34.56</strong>
+                            </p>
+                            <p>Email:
+                                <strong><a href="mailto:name@example.com">name@example.com</a></strong>
+                            </p>
+                            <p>Address:
+                                <strong>Rue Edouard Branly,
+                                    <br> Melun 77000 </strong>
+                            </p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.PART 1 END -->
+            <!-- /.PART 2 -->
+            <div class="row">
+                <div class="box">
+                    <div class="col-lg-12">
+                        <hr>
+                        <h2 class="intro-text text-center">Contact
+                            <strong>form</strong>
+                        </h2>
+                        <hr>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, vitae, distinctio, possimus repudiandae cupiditate ipsum excepturi dicta neque eaque voluptates tempora veniam esse earum sapiente optio deleniti consequuntur eos voluptatem.</p>
+                        <form role="form">
+                            <div class="row">
+                                <div class="form-group col-lg-4">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label>Email Address</label>
+                                    <input type="email" class="form-control">
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label>Phone Number</label>
+                                    <input type="tel" class="form-control">
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="form-group col-lg-12">
+                                    <label>Message</label>
+                                    <textarea class="form-control" rows="6"></textarea>
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <input type="hidden" name="save" value="contact">
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- /.PART 2 END -->
+        </div>
+    </div>
+    <!-- /.SECTION CONTACT END -->
 
 {% endblock %}

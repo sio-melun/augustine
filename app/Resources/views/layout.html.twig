@@ -2,68 +2,55 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <![endif]-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>{% block title %}Augustine II{% endblock %}</title>
-    <!--  Bootstrap Style -->
-    <link href="{{asset('bundles/augustineplatform/css/bootstrap.css')}}" rel="stylesheet" />
-    <!--  Font-Awesome Style -->
-    <link href="{{asset('bundles/augustineplatform/css/font-awesome.min.css')}}" rel="stylesheet" />
-    <!--  Animation Style -->
-    <link href="{{asset('bundles/augustineplatform/css/animate.css')}}" rel="stylesheet" />
-    <!--  Pretty Photo Style -->
-    <link href="{{asset('bundles/augustineplatform/css/prettyPhoto.css')}}" rel="stylesheet" />
-    <!--  Google Font Style -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <!--  Custom Style -->
-    <link href="{{asset('bundles/augustineplatform/css/style.css')}}" rel="stylesheet" />
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+        <!-- Bootstrap Core CSS -->
+    <link href="{{asset('bundles/augustineplatform/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{asset('bundles/augustineplatform/css/business-casual.css')}}" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
 </head>
 <body>
-    {% block body %}
-    {% endblock %}
+    <!--/. PRELOADER -->
     <div id="pre-div">
         <div id="loader">
         </div>
     </div>
     <!--/. PRELOADER END -->
-    <div class="navbar navbar-default navbar-fixed-top move-me ">
+    <div class="brand">-- Augustine --</div>
+    <div class="address-bar">Véhicule | Ecologique | Energie Solaire</div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
         <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
-                <!-- LOGO PROJET -->
-
-                <a class="navbar-brand" href="http://www.vinci-melun.org/">
-                    <img src="{{asset('bundles/augustineplatform/img/img/logo-ldv.jpg')}}" class="navbar-brand-logo" alt="" />
-                </a>
-
-                <a class="navbar-brand" href="http://www.diderot.org/">
-                    <img src="{{asset('bundles/augustineplatform/img/img/logo-diderot.jpg')}}" class="navbar-brand-logo" alt="" />
-                </a>
-
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Business Casual</a>
             </div>
-            <div class="navbar-collapse collapse move-me">
-                <ul class="nav navbar-nav navbar-right">
-
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
                     <li >
                         <a href="{{ path('augustine_platform_home') }}"> Accueil </a>
                     </li>
                     <li >
-                        <a href="{{ path('augustine_platform_home') }}#about"> Actualités </a>
+                        <a href="{{ path('augustine_platform_home') }}#actualite"> Actualités </a>
                     </li>
                     
                     <li >
@@ -77,95 +64,49 @@
                     <li >
                         <a href="{{ path('augustine_platform_home') }}#contact"> Contact </a>
                     </li>
-                  <li class="dropdown" id="menuLogin">
-                  <!--<a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Admin</a>
-                       <div class="dropdown-menu" style="padding:17px;">
-                           <p style="padding:1px;"><a
-                             href="user.php"><i class="fa fa-group"></i> Gestion utilisateurs</a>
-                           </p><hr>
-                             <p style="padding:1px;"><a
-                               href="actualite.php"><span class="glyphicon glyphicon-bullhorn"> Gestion actualités</span></a>
-                              </p><hr>
-                            <p style="padding:1px;"><a
-                               href="commentaire.php"><span class="glyphicon glyphicon-comment"> Gestion commentaires</span></a>
-                            </p><hr>
-                        <p style="padding:1px;"><a href="options.php"><span class="glyphicon glyphicon-cog"> Options</span></a></p>
-                        <hr>
-                        <p style="padding:1px;"><a href="logout.php?out=1"><span
-                             class="glyphicon glyphicon-off"> D&eacute;connexion</span></a></p>
-                      </div>-->
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">S'identifier</a>
-                        <div class="dropdown-menu">
-                            <div class=" div-transPOP">
-                                <form class="form" id="formLogin" action="doLogin.php" method="POST">
-                                    <h2 >Connexion</h2>
-                                    
-                                        <form action="user.php" method="POST">
-                                            <div class="form-group">
-                                                <input type="text" name="username" class="form-control" required="required" placeholder="Pseudo">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password" name="password" class="form-control" required="required" placeholder="Mot de passe">
-                                            </div>
-                                            <div class="form-group">
-                                                <button type="submit" name="connexion" class="btn btn-success btn-block btn-lg">Connexion</button>
-                                            </div>
-                                        </form>
-                                    
-                                    <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Pas de compte ?</a>
-                        <div class="dropdown-menu">
-                            <div class=" div-transPOP">
-                                <form class="form" id="formLogin" action="doLogin.php" method="POST">
-                                    <h2 >Inscription</h2>
-                                    
-                                        <form action="user.php" method="POST">
-                                            <div class="form-group">
-                                                <input type="text" name="username" class="form-control" required="required" placeholder="Pseudo">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password" name="password" class="form-control" required="required" placeholder="Mot de passe">
-                                            </div>
-                                            <div class="form-group">
-                                                <button type="submit" name="connexion" class="btn btn-success btn-block btn-lg">Connexion</button>
-                                            </div>
-                                        </form>
-                                </form><!--END FORM-->
-                            </div>
+                    <div class="dropdown-menu">
+                        <div class=" div-transPOP">
+                            <form class="form" id="formLogin" method="POST">
+                                <h2 >Connexion</h2>
+                                <div class="form-group">
+                                    <input type="text" name="username" class="form-control" required="required" placeholder="Pseudo">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" class="form-control" required="required" placeholder="Mot de pass">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" name="connexion" class="btn btn-success btn-block btn-lg">Connexion</button>
+                                </div>
+                            </form>
                         </div>
-                                </form><!--END FORM CONNEXION-->
-                            </div>
-                        </div>
-                    </li>
+                    </div>
                 </ul>
-            </ul>
             </div>
+            <!-- /.navbar-collapse -->
         </div>
-    </div>
-    <!--./ NAV BAR END -->
-    <div id="footser-end">
+        <!-- /.container -->
+    </nav>
+    <!-- /.NAVBAR END -->
+     {% block body %}
+    {% endblock %}
+    <!-- /.SECTION FOOTER -->
+    <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    by LTCRcorporation © {{ 'now'|date('Y') }}
+                <div class="col-lg-12 text-center">
+                    <p>by LTCRcorporation © {{ 'now'|date('Y') }}</p>
                 </div>
             </div>
-
         </div>
-    </div>
-    <!--./ FOOTER SECTION END -->
+    </footer>
+    <!-- /.SECTION FOOTER END -->
     {% block javascripts %}
-    <!--  Jquery Core Script -->
-    <script src="{{asset('bundles/augustineplatform/js/jquery-1.10.2.js')}}"></script>
-    <!--  Core Bootstrap Script -->
-    <script src="{{asset('bundles/augustineplatform/js/bootstrap.js')}}"></script>
-     <!--  WOW Script -->
-    <script src="{{asset('bundles/augustineplatform/js/wow.min.js')}}"></script>
-    <!--  Scrolling Script -->
-    <script src="{{asset('bundles/augustineplatform/js/jquery.easing.min.js')}}"></script>
-    <!--  PrettyPhoto Script -->
-    <script src="{{asset('bundles/augustineplatform/js/jquery.prettyPhoto.js')}}"></script>
-    <!--  Custom Scripts -->
-    <script src="{{asset('bundles/augustineplatform/js/custom.js')}}"></script>
+    <!-- jQuery -->
+    <script src="{{asset('bundles/augustineplatform/js/jquery.js')}}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{asset('bundles/augustineplatform/js/bootstrap.min.js')}}"></script>
+    <!-- Script to Activate the Carousel -->
+    <script> $('.carousel').carousel({interval: 5000}) //changes the speed </script>
     {% endblock %}
 </body>
 </html>
