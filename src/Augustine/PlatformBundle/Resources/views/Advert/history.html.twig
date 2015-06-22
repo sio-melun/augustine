@@ -17,27 +17,26 @@
                 </div>
             </div>
             <div class="row ">
-                <div class="media wow rotateIn animated" data-wow-delay="0.2s">
-                    {% for histo in histo %}
-                        {%if true == histo.isHisto %}
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-
-                                <article>
-                                    <header>
-                                        <h2>{{ histo.titre }}</h2> 
-                                        <h5>{{ histo.nomRessource }}, relatant du : {{ histo.dateActu|date('d M Y') }}</h5>
-                                    </header>
-                                    <div class="content">
-                                        <p>
-                                            {{ histo.texte }}
-                                        </p>
-                                        <time>paru le, {{ histo.dateCrea|date('d M Y') }}</time>
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            {% for histo in histo %}
+                                {% if true == histo.isHisto %}
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="heading{{histo.id}}">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{histo.id}}" aria-expanded="false" aria-controls="collapse{{histo.id}}">
+                                                    Titre : {{ histo.titre }} | Type : {{ histo.nomRessource }} | Paru le : {{ histo.dateCrea|date('d M Y') }}<a href="{{ path("augustine_platform_voir", { id: histo.id  }) }}" title="{{ histo.titre }}"> | Agrandir</a>
+                                                 </a>
+                                            </h4>
+                                        </div>
                                     </div>
-                                </article>      
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
+                                    <div id="collapse{{histo.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{histo.id}}">
+                                        <div class="panel-body">
+                                            {{ histo.texte }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
             </div>
 
         </div>

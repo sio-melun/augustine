@@ -22,7 +22,7 @@ class AdvertController extends Controller {
         $histo = $em->getRepository('AugustinePlatformBundle:Actualite')->findAll();
 
         return $this->render('AugustinePlatformBundle:Advert:history.html.twig', array(
-                    'histo' => $histo
+                    'histo' => $histo,
         ));
     }
 
@@ -37,11 +37,13 @@ class AdvertController extends Controller {
         if ($request->isMethod('POST')) {
             $form->bind($request);
 
-            $a = $form->getData();
-            $em->persist($a);
-            $em->flush();
+            if ($form->isValid()) {
+                $a = $form->getData();
+                $em->persist($a);
+                $em->flush();
 
-            return $this->redirect($this->generateUrl("augustine_platform_home"));
+                return $this->redirect($this->generateUrl("augustine_platform_home"));
+            }
         }
 
 
@@ -53,8 +55,13 @@ class AdvertController extends Controller {
 
     public function etablissementsAction() {
 
-        return $this->render('AugustinePlatformBundle:Advert:etablissements.html.twig', array (
-            
+        return $this->render('AugustinePlatformBundle:Advert:etablissements.html.twig', array(
+        ));
+    }
+
+    public function voirAction(Actualite $actu) {
+        return $this->render('AugustinePlatformBundle:Advert:voir.html.twig', array(
+                    'actualite' => $actu,
         ));
     }
 

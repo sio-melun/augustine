@@ -17,3 +17,9 @@ augustine_platform_ajouter:
 augustine_platform_etablissements:
     path:      /etablissements
     defaults:  { _controller: AugustinePlatformBundle:Advert:etablissements }
+    
+augustine_platform_voir:
+    path:      /voir/{id}
+    defaults:  { _controller: AugustinePlatformBundle:Advert:voir }
+    requirements:
+        id: \d+
