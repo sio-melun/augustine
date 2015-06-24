@@ -100,7 +100,7 @@ class AdvertController extends Controller {
         $em->remove($actu);
         $em->flush();
         
-        return $this->generateUrl("augustine_platform_home");
+        return $this->redirect($this->generateUrl("augustine_platform_home"));
     }
 
 }
