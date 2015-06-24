@@ -7,23 +7,5 @@
 {% endblock %}
 
 {% block augustineplatform_body %}
-    <article>
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading{{actualite.id}}">
-                    <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{actualite.id}}" aria-expanded="false" aria-controls="collapse{{actualite.id}}">
-                            Titre :{{ actualite.titre }} | Type : {{ actualite.nomRessource }} | Relatant du : {{ actualite.dateActu|date('d M Y') }} | Paru le : {{ actualite.dateCrea|date('d M Y') }}
-                        </a>
-                    </h4>
-                </div>
-            </div>
-            <div id="collapse{{actualite.id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{actualite.id}}">
-                <div class="panel-body">
-                    {{ actualite.texte }}
-                </div>
-            </div>
-        </div>
-    </article>
+    {% include 'AugustinePlatformBundle:Advert:actualite_contenu.html.twig' %}
 {%endblock%}

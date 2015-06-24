@@ -103,20 +103,7 @@
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                             {% for actualite in actualite %}
                                 {% if null == actualite.isHisto %}
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading" role="tab" id="heading{{actualite.id}}">
-                                            <h4 class="panel-title">
-                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{actualite.id}}" aria-expanded="false" aria-controls="collapse{{actualite.id}}">
-                                                    Titre : {{ actualite.titre }} | Type : {{ actualite.nomRessource }} | Paru le : {{ actualite.dateCrea|date('d M Y') }}<a href="{{ path("augustine_platform_voir", { id: actualite.id  }) }}" title="{{ actualite.titre }}"> | Agrandir</a>
-                                                 </a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div id="collapse{{actualite.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{actualite.id}}">
-                                        <div class="panel-body">
-                                            {{ actualite.texte }}
-                                        </div>
-                                    </div>
+                                    {% include "AugustinePlatformBundle:Advert:actualite_contenu.html.twig" %}
                                 {% endif %}
                             {% endfor %}
                         </div>

@@ -19,10 +19,10 @@ class AdvertController extends Controller {
 
     public function historyAction() {
         $em = $this->getDoctrine()->getManager();
-        $histo = $em->getRepository('AugustinePlatformBundle:Actualite')->findAll();
+        $actualite = $em->getRepository('AugustinePlatformBundle:Actualite')->findAll();
 
         return $this->render('AugustinePlatformBundle:Advert:history.html.twig', array(
-                    'histo' => $histo,
+                    'actualite' => $actualite,
         ));
     }
 
@@ -63,6 +63,35 @@ class AdvertController extends Controller {
         return $this->render('AugustinePlatformBundle:Advert:voir.html.twig', array(
                     'actualite' => $actu,
         ));
+    }
+
+    public function editerAction(Actualite $actu) {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $form = $this->createForm(new ActualiteType(), $actu);
+
+        $request = $this->getRequest();
+
+        if ($request->isMethod('POST')) {
+            $form->bind($request);
+
+            if ($form->isValid()) {
+                $a = $form->getData();
+                $em->persist($a);
+                $em->flush();
+
+                return $this->redirect(
+                                $this->generateUrl("augustine_platform_voir", array(
+                                    'id' => $a->getId()
+                )));
+            }
+            }
+
+            return $this->render('AugustinePlatformBundle:Advert:editer.html.twig', array(
+                        'id' => $actu->getId(),
+                        'form' => $form->createView(),
+            ));
+        
     }
 
 }

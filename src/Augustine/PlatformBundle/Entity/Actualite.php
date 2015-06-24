@@ -35,7 +35,7 @@ class Actualite
     /**
      * @var string
      *
-     * @ORM\Column(name="texte", type="string", length=255)
+     * @ORM\Column(name="texte", type="text")
      */
     private $texte;
 
