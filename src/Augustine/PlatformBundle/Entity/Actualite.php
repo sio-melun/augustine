@@ -74,6 +74,8 @@ class Actualite
     
     /**
      * @ORM\ManyToOne(targetEntity="Augustine\PlatformBundle\Entity\TypeActu")
+     * 
+     * @ORM\Column(name="idTypeActu", type="integer")
      */
     private $typeActu;
 
