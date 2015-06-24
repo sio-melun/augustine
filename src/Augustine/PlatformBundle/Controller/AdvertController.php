@@ -93,5 +93,14 @@ class AdvertController extends Controller {
             ));
         
     }
+    
+    public function supprimerAction(Actualite $actu) {
+        $em = $this->getDoctrine()->getManager();
+        
+        $em->remove($actu);
+        $em->flush();
+        
+        return $this->generateUrl("augustine_platform_home");
+    }
 
 }

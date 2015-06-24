@@ -103,7 +103,7 @@
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                             {% for actualite in actualite %}
                                 {% if null == actualite.isHisto %}
-                                    {% include "AugustinePlatformBundle:Advert:actualite_contenu.html.twig" %}
+                                    {% include "AugustinePlatformBundle:Advert:actualite_contenu.html.twig" with { 'voir': false, 'link': true   } %}
                                 {% endif %}
                             {% endfor %}
                         </div>

@@ -29,3 +29,9 @@ augustine_platform_editer:
     defaults:  { _controller: AugustinePlatformBundle:Advert:editer }
     requirements:
         id: \d+
+        
+augustine_platform_supprimer:
+    path:      /supprimer/{id}
+    defaults:  { _controller: AugustinePlatformBundle:Advert:supprimer }
+    requirements:
+        id: \d+
