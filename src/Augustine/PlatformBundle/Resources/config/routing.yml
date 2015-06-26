@@ -10,6 +10,10 @@ augustine_platform_sponsor:
     path: /sponsors
     defaults: { _controller: AugustinePlatformBundle:Sponsor:index }
     
+augustine_platform_contact:
+    path: /contact
+    defaults: { _controller: AugustinePlatformBundle:Contact:index }
+    
 augustine_platform_ajouter:
     path:      /ajouter
     defaults:  { _controller: AugustinePlatformBundle:Actualite:ajouter }
