@@ -1,10 +1,10 @@
 augustine_platform_home:
     path:      /index
-    defaults:  { _controller: AugustinePlatformBundle:Advert:index }
+    defaults:  { _controller: AugustinePlatformBundle:Actualite:index }
 
 augustine_platform_history:
     path:      /historique/{page}
-    defaults:  { _controller: AugustinePlatformBundle:Advert:history, page : 2 }
+    defaults:  { _controller: AugustinePlatformBundle:Actualite:history, page : 2 }
 
 augustine_platform_sponsor:
     path: /sponsors
@@ -12,26 +12,26 @@ augustine_platform_sponsor:
     
 augustine_platform_ajouter:
     path:      /ajouter
-    defaults:  { _controller: AugustinePlatformBundle:Advert:ajouter }
+    defaults:  { _controller: AugustinePlatformBundle:Actualite:ajouter }
     
 augustine_platform_etablissements:
     path:      /etablissements
-    defaults:  { _controller: AugustinePlatformBundle:Advert:etablissements }
+    defaults:  { _controller: AugustinePlatformBundle:Actualite:etablissements }
     
 augustine_platform_voir:
     path:      /voir/{id}
-    defaults:  { _controller: AugustinePlatformBundle:Advert:voir }
+    defaults:  { _controller: AugustinePlatformBundle:Actualite:voir }
     requirements:
         id: \d+
         
 augustine_platform_editer:
     path:      /editer/{id}
-    defaults:  { _controller: AugustinePlatformBundle:Advert:editer }
+    defaults:  { _controller: AugustinePlatformBundle:Actualite:editer }
     requirements:
         id: \d+
         
 augustine_platform_supprimer:
     path:      /supprimer/{id}
-    defaults:  { _controller: AugustinePlatformBundle:Advert:supprimer }
+    defaults:  { _controller: AugustinePlatformBundle:Actualite:supprimer }
     requirements:
         id: \d+

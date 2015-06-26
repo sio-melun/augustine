@@ -2,246 +2,129 @@
 
 namespace Augustine\PlatformBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Augustine\PlatformBundle\Entity\Actualite;
 use Augustine\PlatformBundle\Form\ActualiteType;
 
-/**
- * Actualite controller.
- *
- * @Route("/actualite")
- */
-class ActualiteController extends Controller
-{
+class ActualiteController extends Controller {
 
-    /**
-     * Lists all Actualite entities.
-     *
-     * @Route("/", name="actualite")
-     * @Method("GET")
-     * @Template()
-     */
-    public function indexAction()
-    {
+    public function indexAction() {
         $em = $this->getDoctrine()->getManager();
+        // $actualites = $em->getRepository('AugustinePlatformBundle:Actualite')->findAll();
 
-        $entities = $em->getRepository('AugustinePlatformBundle:Actualite')->findAll();
+        $repo = $em->getRepository('AugustinePlatformBundle:Actualite');
 
-        return array(
-            'entities' => $entities,
-        );
-    }
-    /**
-     * Creates a new Actualite entity.
-     *
-     * @Route("/", name="actualite_create")
-     * @Method("POST")
-     * @Template("AugustinePlatformBundle:Actualite:new.html.twig")
-     */
-    public function createAction(Request $request)
-    {
-        $entity = new Actualite();
-        $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
+        $qb = $repo->createQueryBuilder('a');
+        $qb->orderBy('a.dateCrea', 'ASC')
+                ->where('a.isHisto = 0')
+                ->where('a.id > 3');
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
+        $query = $qb->getQuery();
+        $query->setMaxResults(6);
+        $actualites = $query->getArrayResult();
 
-            return $this->redirect($this->generateUrl('actualite_show', array('id' => $entity->getId())));
-        }
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
-    }
-
-    /**
-     * Creates a form to create a Actualite entity.
-     *
-     * @param Actualite $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createCreateForm(Actualite $entity)
-    {
-        $form = $this->createForm(new ActualiteType(), $entity, array(
-            'action' => $this->generateUrl('actualite_create'),
-            'method' => 'POST',
+        return $this->render('AugustinePlatformBundle:Actualite:index.html.twig', array(
+                    'actualites' => $actualites
         ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
-        return $form;
     }
 
-    /**
-     * Displays a form to create a new Actualite entity.
-     *
-     * @Route("/new", name="actualite_new")
-     * @Method("GET")
-     * @Template()
-     */
-    public function newAction()
-    {
-        $entity = new Actualite();
-        $form   = $this->createCreateForm($entity);
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
-    }
-
-    /**
-     * Finds and displays a Actualite entity.
-     *
-     * @Route("/{id}", name="actualite_show")
-     * @Method("GET")
-     * @Template()
-     */
-    public function showAction($id)
-    {
+    public function historyAction() {
         $em = $this->getDoctrine()->getManager();
+        // $actualites = $em->getRepository('AugustinePlatformBundle:Actualite')->findAll();
 
-        $entity = $em->getRepository('AugustinePlatformBundle:Actualite')->find($id);
+        $repo = $em->getRepository('AugustinePlatformBundle:Actualite');
 
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Actualite entity.');
-        }
+        $qb = $repo->createQueryBuilder('a');
+        $qb->orderBy('a.dateCrea', 'ASC')
+                ->where('a.isHisto = 1');
 
-        $deleteForm = $this->createDeleteForm($id);
+        $query = $qb->getQuery();
 
-        return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
+        $actualites = $query->getArrayResult();
 
-    /**
-     * Displays a form to edit an existing Actualite entity.
-     *
-     * @Route("/{id}/edit", name="actualite_edit")
-     * @Method("GET")
-     * @Template()
-     */
-    public function editAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('AugustinePlatformBundle:Actualite')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Actualite entity.');
-        }
-
-        $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
-
-    /**
-    * Creates a form to edit a Actualite entity.
-    *
-    * @param Actualite $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createEditForm(Actualite $entity)
-    {
-        $form = $this->createForm(new ActualiteType(), $entity, array(
-            'action' => $this->generateUrl('actualite_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
+        return $this->render('AugustinePlatformBundle:Actualite:history.html.twig', array(
+                    'actualites' => $actualites,
         ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
-        return $form;
     }
-    /**
-     * Edits an existing Actualite entity.
-     *
-     * @Route("/{id}", name="actualite_update")
-     * @Method("PUT")
-     * @Template("AugustinePlatformBundle:Actualite:edit.html.twig")
-     */
-    public function updateAction(Request $request, $id)
-    {
+
+    public function ajouterAction() {
         $em = $this->getDoctrine()->getManager();
+        $a = new Actualite();
 
-        $entity = $em->getRepository('AugustinePlatformBundle:Actualite')->find($id);
+        $form = $this->createForm(new ActualiteType(), $a);
 
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Actualite entity.');
-        }
+        $request = $this->getRequest();
 
-        $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
-        $editForm->handleRequest($request);
+        if ($request->isMethod('POST')) {
+            $form->bind($request);
 
-        if ($editForm->isValid()) {
-            $em->flush();
+            if ($form->isValid()) {
+                $a = $form->getData();
 
-            return $this->redirect($this->generateUrl('actualite_edit', array('id' => $id)));
-        }
+                $logger = $this->get('logger');
+                $logger->info($a->getTypeActu()->getLibelle());
 
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
-    /**
-     * Deletes a Actualite entity.
-     *
-     * @Route("/{id}", name="actualite_delete")
-     * @Method("DELETE")
-     */
-    public function deleteAction(Request $request, $id)
-    {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
+                $em->persist($a);
+                $em->flush();
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('AugustinePlatformBundle:Actualite')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Actualite entity.');
+                return $this->redirect($this->generateUrl("augustine_platform_home"));
             }
-
-            $em->remove($entity);
-            $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('actualite'));
+
+
+        return $this->render('AugustinePlatformBundle:Actualite:ajouter.html.twig', array(
+                    'form' => $form->createView(),
+        ));
     }
 
-    /**
-     * Creates a form to delete a Actualite entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('actualite_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+    public function etablissementsAction() {
+
+        return $this->render('AugustinePlatformBundle:Actualite:etablissements.html.twig', array(
+        ));
     }
+
+    public function voirAction(Actualite $actu) {
+        return $this->render('AugustinePlatformBundle:Actualite:voir.html.twig', array(
+                    'actualite' => $actu,
+        ));
+    }
+
+    public function editerAction(Actualite $actu) {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $form = $this->createForm(new ActualiteType(), $actu);
+
+        $request = $this->getRequest();
+
+        if ($request->isMethod('POST')) {
+            $form->bind($request);
+
+            if ($form->isValid()) {
+                $a = $form->getData();
+                $em->persist($a);
+                $em->flush();
+
+                return $this->redirect(
+                                $this->generateUrl("augustine_platform_voir", array(
+                                    'id' => $a->getId()
+                )));
+            }
+        }
+
+        return $this->render('AugustinePlatformBundle:Actualite:editer.html.twig', array(
+                    'id' => $actu->getId(),
+                    'form' => $form->createView(),
+        ));
+    }
+
+    public function supprimerAction(Actualite $actu) {
+        $em = $this->getDoctrine()->getManager();
+
+        $em->remove($actu);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl("augustine_platform_home"));
+    }
+
 }

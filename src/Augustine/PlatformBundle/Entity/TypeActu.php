@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TypeActu
  *
- * @ORM\Table()
+ * @ORM\Table(name="typeactu")
  * @ORM\Entity(repositoryClass="Augustine\PlatformBundle\Entity\TypeActuRepository")
  */
 class TypeActu

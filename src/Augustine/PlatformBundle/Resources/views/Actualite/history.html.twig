@@ -1,0 +1,54 @@
+{# src/Augustine/PlatformBundle/Resources/views/Actualite/history.html.twig #}
+
+{% extends "AugustinePlatformBundle::layout.html.twig" %}
+
+{% block title %}
+    Historique -{{ parent() }}
+{% endblock %}
+
+{% block augustineplatform_body %}
+
+    <div id="historique">
+        <div class="container">
+            <div class="row">
+                <div class="box">
+                    <div class="col-lg-12 text-center">
+                        <hr>
+                        <h2 class="intro-text text-center">
+                            <strong>Nos évènements passés :</strong> Historique
+                        </h2>
+                        <hr>
+                        <!--<div class="col-md-6">
+                            <img class="img-responsive img-border-left" src="{{asset('bundles/augustineplatform/img/slide-2.jpg')}}" alt="">
+                        </div>-->
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            {% for actualite in actualites %}
+                                <article>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="heading{{actualite.id}}">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{actualite.id}}" aria-expanded="false" aria-controls="collapse{{actualite.id}}">
+                                                    Titre : {{ actualite.titre }} | Type : {{ actualite.nomRessource }} | Paru le : {{ actualite.dateCrea|date('d M Y') }}<a href="{{ path("augustine_platform_voir", { id: actualite.id  }) }}" title="{{ actualite.titre }}"> | Agrandir</a><a href="{{ path("augustine_platform_editer", { id: actualite.id  }) }}" title="Editer cet article"> | Editer</a>
+                                                    <a href="{{ path("augustine_platform_supprimer", { id: actualite.id  }) }}" title="Supprimer cet article"> | Supprimer</a>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div id="collapse{{actualite.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{actualite.id}}">
+                                        <div class="panel-body">
+                                            {{ actualite.texte|nl2br }}
+                                        </div>
+                                    </div>
+                                </article>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="clearfix">     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

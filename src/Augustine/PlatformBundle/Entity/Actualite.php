@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Actualite
  *
- * @ORM\Table()
+ * @ORM\Table(name = "actualite")
  * @ORM\Entity(repositoryClass="Augustine\PlatformBundle\Entity\ActualiteRepository")
  */
 class Actualite
@@ -74,8 +74,8 @@ class Actualite
     
     /**
      * @ORM\ManyToOne(targetEntity="Augustine\PlatformBundle\Entity\TypeActu")
+     * @ORM\JoinColumn(name="idTypeActu", referencedColumnName="id")
      * 
-     * @ORM\Column(name="idTypeActu", type="integer", nullable=true)
      */
     private $typeActu;
 

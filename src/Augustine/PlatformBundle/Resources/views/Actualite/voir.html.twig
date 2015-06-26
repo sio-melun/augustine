@@ -1,0 +1,41 @@
+{# src/Augustine/PlatformBundle/Resources/views/Actualite/voir.html.twig #}
+
+{% extends "AugustinePlatformBundle::layout.html.twig" %}
+
+{% block title %}
+    Accueil -{{ parent() }}
+{% endblock %}
+
+{% block augustineplatform_body %}
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="admin">
+                </div>
+                <div class="col-lg-12 text-center">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <article>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="heading{{actualite.id}}">
+                                    <h4 class="panel-title">
+                                        Titre : {{ actualite.titre }} | Type : {{ actualite.nomRessource }} | Paru le : {{ actualite.dateCrea|date('d M Y') }}<a href="{{ path("augustine_platform_editer", { id: actualite.id  }) }}" title="Editer cet article"> | Editer</a>
+                                        <a href="{{ path("augustine_platform_supprimer", { id: actualite.id  }) }}" title="Supprimer cet article"> | Supprimer</a>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div id="collapse{{actualite.id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{actualite.id}}">
+                                <div class="panel-body">
+                                    {{ actualite.texte|nl2br }}
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="clearfix">     
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock%}
+
