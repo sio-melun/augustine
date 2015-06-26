@@ -24,23 +24,15 @@
                         </div>-->
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                             {% for actualite in actualites %}
-                                <article>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading" role="tab" id="heading{{actualite.id}}">
-                                            <h4 class="panel-title">
-                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{actualite.id}}" aria-expanded="false" aria-controls="collapse{{actualite.id}}">
-                                                    Titre : {{ actualite.titre }} | Type : {{ actualite.nomRessource }} | Paru le : {{ actualite.dateCrea|date('d M Y') }}<a href="{{ path("augustine_platform_voir", { id: actualite.id  }) }}" title="{{ actualite.titre }}"> | Agrandir</a><a href="{{ path("augustine_platform_editer", { id: actualite.id  }) }}" title="Editer cet article"> | Editer</a>
-                                                    <a href="{{ path("augustine_platform_supprimer", { id: actualite.id  }) }}" title="Supprimer cet article"> | Supprimer</a>
-                                                </a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div id="collapse{{actualite.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{actualite.id}}">
-                                        <div class="panel-body">
-                                            {{ actualite.texte|nl2br }}
-                                        </div>
-                                    </div>
-                                </article>
+                                <div class="col-sm-4 text-center">
+                                    <a href="{{path('augustine_platform_voir', {id : actualite.id})}}"  title='En savoir plus'><img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt=""></a>
+                                    <h3>{{actualite.titre}} <br />
+                                        <small>{{actualite.dateCrea|date('d M Y')}}</small>
+                                    </h3>
+                                    <p>
+                                        {{actualite.texte | truncate(255, true, ' ...')}}
+                                    </p>
+                                </div>
                             {% endfor %}
                         </div>
                     </div>

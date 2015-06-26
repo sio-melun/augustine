@@ -10,25 +10,24 @@
     <div class="container">
         <div class="row">
             <div class="box">
+                <a href="{{ path("augustine_platform_editer", { id : actualite.id }) }}" title="Editer cet article">Modifier</a>
+                <a href="{{ path("augustine_platform_supprimer", { id : actualite.id }) }}" title="Supprimer cet article">Supprimer</a>
                 <div class="admin">
                 </div>
                 <div class="col-lg-12 text-center">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <article>
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="heading{{actualite.id}}">
-                                    <h4 class="panel-title">
-                                        Titre : {{ actualite.titre }} | Type : {{ actualite.nomRessource }} | Paru le : {{ actualite.dateCrea|date('d M Y') }}<a href="{{ path("augustine_platform_editer", { id: actualite.id  }) }}" title="Editer cet article"> | Editer</a>
-                                        <a href="{{ path("augustine_platform_supprimer", { id: actualite.id  }) }}" title="Supprimer cet article"> | Supprimer</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div id="collapse{{actualite.id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{actualite.id}}">
-                                <div class="panel-body">
-                                    {{ actualite.texte|nl2br }}
-                                </div>
-                            </div>
-                        </article>
+                        <div class="col-lg-4 col-lg-offset-4 text-center">
+                            <h3>{{actualite.titre}} <br />
+                                <small>{{actualite.dateCrea|date('d M Y')}}</small>
+                            </h3>
+                            <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt="">
+                        </div>
+                        <div class='col-lg-12 text-center'>
+                            <p>
+                                <br />
+                                {{actualite.texte}}
+                            </p>
+                        </div>
                     </div>
                 </div>
 

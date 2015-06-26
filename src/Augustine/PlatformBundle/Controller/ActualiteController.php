@@ -17,7 +17,7 @@ class ActualiteController extends Controller {
         $qb = $repo->createQueryBuilder('a');
         $qb->orderBy('a.dateCrea', 'ASC')
                 ->where('a.isHisto = 0')
-                ->where('a.id > 3');
+                ->andwhere('a.id > 3');
 
         $query = $qb->getQuery();
         $query->setMaxResults(6);
@@ -36,7 +36,8 @@ class ActualiteController extends Controller {
 
         $qb = $repo->createQueryBuilder('a');
         $qb->orderBy('a.dateCrea', 'ASC')
-                ->where('a.isHisto = 1');
+                ->where('a.isHisto = 1')
+                ->andwhere('a.id > 3');
 
         $query = $qb->getQuery();
 
@@ -106,7 +107,7 @@ class ActualiteController extends Controller {
                 $em->flush();
 
                 return $this->redirect(
-                                $this->generateUrl("augustine_platform_voir", array(
+                                $this->generateUrl("augustine_platform_home", array(
                                     'id' => $a->getId()
                 )));
             }
@@ -114,6 +115,7 @@ class ActualiteController extends Controller {
 
         return $this->render('AugustinePlatformBundle:Actualite:editer.html.twig', array(
                     'id' => $actu->getId(),
+                    'titre' => $actu->getTitre(),
                     'form' => $form->createView(),
         ));
     }
