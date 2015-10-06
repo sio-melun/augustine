@@ -64,13 +64,6 @@ class Actualite
      * @ORM\Column(name="isHisto", type="boolean", nullable=true)
      */
     private $isHisto;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nomRessource", type="string", length=255)
-     */
-    private $nomRessource;
     
     /**
      * @ORM\ManyToOne(targetEntity="Augustine\PlatformBundle\Entity\TypeActu")
@@ -204,30 +197,6 @@ class Actualite
     {
         return $this->isHisto;
     }
-
-    /**
-     * Set nomRessource
-     *
-     * @param string $nomRessource
-     * @return Actualite
-     */
-    public function setNomRessource($nomRessource)
-    {
-        $this->nomRessource = $nomRessource;
-    
-        return $this;
-    }
-
-    /**
-     * Get nomRessource
-     *
-     * @return string 
-     */
-    public function getNomRessource()
-    {
-        return $this->nomRessource;
-    }
-
 
     /**
      * Set typeActu
