@@ -20,7 +20,7 @@
                         </div>-->
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                             <div id="ajout" class="pad-top-botm">
-                                <form action="{{ path ('augustine_platform_editer', {id : id}) }}" method ="post">
+                                <form action="{{ path ('editer', {id : id}) }}" method ="post">
                                     {{ form_widget(form) }}
 
                                     <input type="submit">
@@ -29,7 +29,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{{ path('augustine_platform_home') }}" class="btn btn-default">
+                    <a href="{{ path('index') }}" class="btn btn-default">
                         Retour à l'acceuil
                     </a>
                     <div class="clearfix">     

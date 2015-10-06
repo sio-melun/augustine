@@ -5,9 +5,16 @@ namespace Augustine\PlatformBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Augustine\PlatformBundle\Entity\Actualite;
 use Augustine\PlatformBundle\Form\ActualiteType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class ActualiteController extends Controller {
 
+ 
+    /**
+     * @Route("/", name="index")
+     * @Template()
+     */
     public function indexAction() {
         $em = $this->getDoctrine()->getManager();
         // $actualites = $em->getRepository('AugustinePlatformBundle:Actualite')->findAll();
@@ -23,11 +30,15 @@ class ActualiteController extends Controller {
         $query->setMaxResults(6);
         $actualites = $query->getArrayResult();
 
-        return $this->render('AugustinePlatformBundle:Actualite:index.html.twig', array(
+        return array(
                     'actualites' => $actualites
-        ));
+        );
     }
 
+    /**
+     * @Route("/history", name="history")
+     * @Template()
+     */
     public function historyAction() {
         $em = $this->getDoctrine()->getManager();
         // $actualites = $em->getRepository('AugustinePlatformBundle:Actualite')->findAll();
@@ -43,11 +54,14 @@ class ActualiteController extends Controller {
 
         $actualites = $query->getArrayResult();
 
-        return $this->render('AugustinePlatformBundle:Actualite:history.html.twig', array(
+        return array(
                     'actualites' => $actualites,
-        ));
+        );
     }
-
+   /**
+     * @Route("/ajouter", name="ajouter")
+     * @Template()
+     */
     public function ajouterAction() {
         $em = $this->getDoctrine()->getManager();
         $a = new Actualite();
@@ -68,29 +82,40 @@ class ActualiteController extends Controller {
                 $em->persist($a);
                 $em->flush();
 
-                return $this->redirect($this->generateUrl("augustine_platform_home"));
+                return $this->redirect($this->generateUrl("index"));
             }
         }
 
 
 
-        return $this->render('AugustinePlatformBundle:Actualite:ajouter.html.twig', array(
+        return array(
                     'form' => $form->createView(),
-        ));
+        );
     }
-
+   /**
+     * @Route("/etatblissement", name="etablissement")
+     * @Template()
+     */
     public function etablissementsAction() {
 
-        return $this->render('AugustinePlatformBundle:Actualite:etablissements.html.twig', array(
-        ));
+        return array(
+        );
     }
 
+    /**
+     * @Route("/voir/{id}", name="voir")
+     * @Template()
+     */
     public function voirAction(Actualite $actu) {
-        return $this->render('AugustinePlatformBundle:Actualite:voir.html.twig', array(
+        return array(
                     'actualite' => $actu,
-        ));
+        );
     }
 
+    /**
+     * @Route("/editer/{id}", name="editer")
+     * @Template()
+     */
     public function editerAction(Actualite $actu) {
         $em = $this->getDoctrine()->getEntityManager();
 
@@ -107,7 +132,7 @@ class ActualiteController extends Controller {
                 $em->flush();
 
                 return $this->redirect(
-                                $this->generateUrl("augustine_platform_home", array(
+                                $this->generateUrl("index", array(
                                     'id' => $a->getId()
                 )));
             }
@@ -120,13 +145,17 @@ class ActualiteController extends Controller {
         ));
     }
 
+    /**
+     * @Route("/supprimer/{id}", name="supprimer")
+     * @Template()
+     */
     public function supprimerAction(Actualite $actu) {
         $em = $this->getDoctrine()->getManager();
 
         $em->remove($actu);
         $em->flush();
 
-        return $this->redirect($this->generateUrl("augustine_platform_home"));
+        return $this->redirect($this->generateUrl("index"));
     }
 
 }

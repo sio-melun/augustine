@@ -1,4 +1,4 @@
 augustine_platform:
-    resource: "@AugustinePlatformBundle/Resources/config/routing.yml"
-    prefix:   /
+    resource: "@AugustinePlatformBundle/Controller/"
+    type:     annotation
 
