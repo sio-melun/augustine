@@ -42,7 +42,7 @@
     </div>
     <!-- /.SECTION HOME END -->
 
-    <!-- /.SECTION OTHER -->
+    <!-- /.SECTION CHALLENGE -->
     <div id="challenge">
         <div class="container">
             <div class="row">
@@ -84,14 +84,13 @@
             </div>
         </div>
     </div>
-    <!-- /.SECTION OTHER END -->
+    <!-- /.SECTION CHALLENGE END -->
 
     <!-- /.SECTION ACTUALITE -->
     <div id="actualite">
         <div class="container">
             <div class="row">
                 <div class="box">
-                    <a href="{{ path("ajouter") }}" title="Ajouter un article">Ajouter</a>
                     <div class="col-lg-12 text-center">
                         <hr>
                         <h2 class="intro-text text-center">
@@ -102,23 +101,28 @@
                         <!--<div class="col-md-6">
                             <img class="img-responsive img-border-left" src="{{asset('bundles/augustineplatform/img/slide-2.jpg')}}" alt="">
                         </div>-->
-                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                             {% for actualite in actualites %}
-                                <div class="col-sm-4 text-center">
+                                <div class="col-md-4 text-center">
                                     <a href="{{path('voir', {id : actualite.id})}}"  title='En savoir plus'><img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt=""></a>
+                                    
                                     <h3>{{actualite.titre}} <br />
                                         <small>{{actualite.dateCrea|date('d M Y')}}</small>
                                     </h3>
+                                    <div class="text-justify">
                                     <p>
-                                        {{actualite.texte | truncate(255, true, ' ...')}}
+                                        {{actualite.texte | truncate(100, true, '...')}}
                                     </p>
+                                    <p>
+                                    <a href="{{path('voir', {id : actualite.id})}}"  title='En savoir plus'> Voir </a>
+                                    </p>
+                                    </div>
                                 </div>
                             {% endfor %}
-                        </div>
-                    </div>
-
-                    <div class="clearfix">     
-                    </div>
+                            <div class="col-md-4 text-center">
+                            <h2><a href="{{ path("ajouter") }}" title="Ajouter un article">+ AJOUTER UNE ACTUALITE</a></h2>
+                    
+                            </div>
+                    </Div>
                 </div>
             </div>
         </div>

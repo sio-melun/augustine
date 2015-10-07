@@ -138,11 +138,11 @@ class ActualiteController extends Controller {
             }
         }
 
-        return $this->render('AugustinePlatformBundle:Actualite:editer.html.twig', array(
+        return array(
                     'id' => $actu->getId(),
                     'titre' => $actu->getTitre(),
                     'form' => $form->createView(),
-        ));
+        );
     }
 
     /**

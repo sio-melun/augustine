@@ -10,17 +10,15 @@
     <div class="container">
         <div class="row">
             <div class="box">
-                <a href="{{ path("editer", { id : actualite.id }) }}" title="Editer cet article">Modifier</a>
-                <a href="{{ path("supprimer", { id : actualite.id }) }}" title="Supprimer cet article">Supprimer</a>
-                <div class="admin">
-                </div>
                 <div class="col-lg-12 text-center">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="col-lg-4 col-lg-offset-4 text-center">
-                            <h3>{{actualite.titre}} <br />
-                                <small>{{actualite.dateCrea|date('d M Y')}}</small>
-                            </h3>
-                            <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt="">
+                        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                            <h2><a href="{{ path("editer", { id : actualite.id }) }}" title="Editer cet article">Modifier</a>
+                             || 
+                            <a href="{{ path("supprimer", { id : actualite.id }) }}" title="Supprimer cet article">Supprimer</a>
+                            </h2>
+                            <h3>{{actualite.titre}} <br /> <small>{{actualite.dateCrea|date('d M Y')}}</small></h3>
+                            <img class="img-responsive col-sm-6 col-md-6 col-lg-offset-3" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt="">
                         </div>
                         <div class='col-lg-12 text-center'>
                             <p>
@@ -29,9 +27,6 @@
                             </p>
                         </div>
                     </div>
-                </div>
-
-                <div class="clearfix">     
                 </div>
             </div>
         </div>
