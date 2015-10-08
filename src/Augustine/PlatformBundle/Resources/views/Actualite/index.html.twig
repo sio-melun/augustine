@@ -3,7 +3,7 @@
 {% extends "AugustinePlatformBundle::layout.html.twig" %}
 
 {% block title %}
-    Accueil -{{ parent() }}
+    {{ parent() }} - Accueil
 {% endblock %}
 
 {% block augustineplatform_body %}
@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row">
                 <div class="box">
-                    <div class="col-lg-12 text-center">
+                    <div class="col-md-12 col-lg-12 text-center">
                         <div class="col-lg-3 col-md-3 col-sm-3 ">
                             <a href="{{ path('index') }}#challenge">
                                 <img src="{{asset('bundles/augustineplatform/img/banniere/rougeF.jpg')}}" class="img-responsive" alt="" />
@@ -47,7 +47,7 @@
         <div class="container">
             <div class="row">
                 <div class="box">
-                    <div class="col-lg-12 text-center">
+                    <div class="col-md-12 col-lg-12 text-center">
                         <hr>
                         <h2 class="intro-text text-center">
                             <strong> Challenge : </strong> Educ'Eco
@@ -101,27 +101,27 @@
                         <!--<div class="col-md-6">
                             <img class="img-responsive img-border-left" src="{{asset('bundles/augustineplatform/img/slide-2.jpg')}}" alt="">
                         </div>-->
-                            {% for actualite in actualites %}
-                                <div class="col-md-4 text-center">
-                                    <a href="{{path('voir', {id : actualite.id})}}"  title='En savoir plus'><img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt=""></a>
-                                    
-                                    <h3>{{actualite.titre}} <br />
-                                        <small>{{actualite.dateCrea|date('d M Y')}}</small>
-                                    </h3>
-                                    <div class="text-justify">
+                        {% for actualite in actualites %}
+                            <div class="col-md-4 text-center">
+                                <a href="{{path('voir', {id : actualite.id})}}"  title='En savoir plus'><img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt=""></a>
+
+                                <h3>{{actualite.titre}} <br />
+                                    <small>{{actualite.dateCrea|date('d M Y')}}</small>
+                                </h3>
+                                <div class="text-justify">
                                     <p>
                                         {{actualite.texte | truncate(100, true, '...')}}
                                     </p>
                                     <p>
-                                    <a href="{{path('voir', {id : actualite.id})}}"  title='En savoir plus'> Voir </a>
+                                        <a href="{{path('voir', {id : actualite.id})}}"  title='En savoir plus'> Voir </a>
                                     </p>
-                                    </div>
                                 </div>
-                            {% endfor %}
-                            <div class="col-md-4 text-center">
-                            <h2><a href="{{ path("ajouter") }}" title="Ajouter un article">+ AJOUTER UNE ACTUALITE</a></h2>
-                    
                             </div>
+                        {% endfor %}
+                        <div class="col-md-4 text-center">
+                            <h2><a href="{{ path("ajouter") }}" title="Ajouter un article">+ AJOUTER UNE ACTUALITE</a></h2>
+
+                        </div>
                     </Div>
                 </div>
             </div>
@@ -175,7 +175,7 @@
                     <div class="col-lg-6"><img class="img-responsive img-border-left" src="{{asset('bundles/augustineplatform/img/sponsor/diderot.jpg')}}" alt=""></div>
                     <div class="col-lg-12 text-center">
                         <hr />
-                        <p>Le projet Augustine est propulsé par deux Lycées. Une qui se trouve à Melun, le <a href="http://www.vinci-melun.org/" target="_blank">lycéée Léonard de Vinci</a> ainsi que le <a href="http://www.diderot.org/index.php" target="_blank"> lycée Diderot </a> à Paris.</p>
+                        <p>Le projet Augustine est propulsé par deux Lycées. Une qui se trouve à Melun, le <a href="http://www.vinci-melun.org/" target="_blank">lycée Léonard de Vinci</a>, une autre à Paris, le <a href="http://www.diderot.org/index.php" target="_blank"> lycée Diderot Paris</a>.</p>
                         <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
                     </div>
