@@ -7,17 +7,18 @@ use Augustine\PlatformBundle\Entity\Actualite;
 use Augustine\PlatformBundle\Form\ActualiteType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Request;
+
 
 class ActualiteController extends Controller {
 
- 
     /**
      * @Route("/", name="index")
      * @Template()
      */
     public function indexAction() {
         $em = $this->getDoctrine()->getManager();
-        // $actualites = $em->getRepository('AugustinePlatformBundle:Actualite')->findAll();
+        // $actualitealites = $em->getRepository('AugustinePlatformBundle:Actualite')->findAll();
 
         $repo = $em->getRepository('AugustinePlatformBundle:Actualite');
 
@@ -31,7 +32,7 @@ class ActualiteController extends Controller {
         $actualites = $query->getArrayResult();
 
         return array(
-                    'actualites' => $actualites
+            'actualites' => $actualites
         );
     }
 
@@ -41,7 +42,7 @@ class ActualiteController extends Controller {
      */
     public function historyAction() {
         $em = $this->getDoctrine()->getManager();
-        // $actualites = $em->getRepository('AugustinePlatformBundle:Actualite')->findAll();
+        // $actualitealites = $em->getRepository('AugustinePlatformBundle:Actualite')->findAll();
 
         $repo = $em->getRepository('AugustinePlatformBundle:Actualite');
 
@@ -55,44 +56,43 @@ class ActualiteController extends Controller {
         $actualites = $query->getArrayResult();
 
         return array(
-                    'actualites' => $actualites,
+            'actualites' => $actualites,
         );
     }
-   /**
+
+    /**
      * @Route("/ajouter", name="ajouter")
      * @Template()
      */
     public function ajouterAction() {
-        $em = $this->getDoctrine()->getManager();
-        $a = new Actualite();
+  
+        $actualite = new Actualite();
+        $actualiteType = new ActualiteType();
 
-        $form = $this->createForm(new ActualiteType(), $a);
+        $form = $this->createForm($actualiteType, $actualite);
 
         $request = $this->getRequest();
 
-        if ($request->isMethod('POST')) {
-            $form->bind($request);
+            $form->handleRequest($request);
 
             if ($form->isValid()) {
-                $a = $form->getData();
+                $em = $this->getDoctrine()->getManager();
 
-                $logger = $this->get('logger');
-                $logger->info($a->getTypeActu()->getLibelle());
+                $actualite->upload();
 
-                $em->persist($a);
+                $em->persist($actualite);
                 $em->flush();
+                
+                return $this->render('AugustinePlatformBundle:Actualite:index.html.twig');
 
-                return $this->redirect($this->generateUrl("index"));
             }
-        }
-
-
 
         return array(
-                    'form' => $form->createView(),
+            'form' => $form->createView(),
         );
     }
-   /**
+
+    /**
      * @Route("/etatblissement", name="etablissement")
      * @Template()
      */
@@ -106,9 +106,9 @@ class ActualiteController extends Controller {
      * @Route("/voir/{id}", name="voir")
      * @Template()
      */
-    public function voirAction(Actualite $actu) {
+    public function voirAction(Actualite $actualite) {
         return array(
-                    'actualite' => $actu,
+            'actualite' => $actualite,
         );
     }
 
@@ -116,10 +116,10 @@ class ActualiteController extends Controller {
      * @Route("/editer/{id}", name="editer")
      * @Template()
      */
-    public function editerAction(Actualite $actu) {
+    public function editerAction(Actualite $actualite) {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $form = $this->createForm(new ActualiteType(), $actu);
+        $form = $this->createForm(new ActualiteType(), $actualite);
 
         $request = $this->getRequest();
 
@@ -127,21 +127,20 @@ class ActualiteController extends Controller {
             $form->bind($request);
 
             if ($form->isValid()) {
-                $a = $form->getData();
-                $em->persist($a);
+                $em->persist($actualite);
                 $em->flush();
 
                 return $this->redirect(
                                 $this->generateUrl("index", array(
-                                    'id' => $a->getId()
+                                    'id' => $actualite->getId()
                 )));
             }
         }
 
         return array(
-                    'id' => $actu->getId(),
-                    'titre' => $actu->getTitre(),
-                    'form' => $form->createView(),
+            'id' => $actualite->getId(),
+            'titre' => $actualite->getTitre(),
+            'form' => $form->createView(),
         );
     }
 
@@ -149,13 +148,13 @@ class ActualiteController extends Controller {
      * @Route("/supprimer/{id}", name="supprimer")
      * @Template()
      */
-    public function supprimerAction(Actualite $actu) {
+    public function supprimerAction(Actualite $actualite) {
         $em = $this->getDoctrine()->getManager();
 
-        $em->remove($actu);
+        $em->remove($actualite);
         $em->flush();
 
-        return $this->redirect($this->generateUrl("index"));
+        return $this->redirectToRoute("index");
     }
 
 }

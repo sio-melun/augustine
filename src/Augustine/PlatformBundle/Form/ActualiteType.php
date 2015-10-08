@@ -19,6 +19,7 @@ class ActualiteType extends AbstractType {
                 ->add('texte', 'textarea')
                 ->add('dateActu')
                 ->add('isHisto', 'checkbox', array('required' => false))
+                ->add('file')
                 ->add('typeActu', 'entity', array(
                     'class' => 'AugustinePlatformBundle:TypeActu',
                     'property' => 'libelle',

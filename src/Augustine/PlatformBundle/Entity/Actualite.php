@@ -4,6 +4,7 @@ namespace Augustine\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Actualite
@@ -11,8 +12,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name = "actualite")
  * @ORM\Entity(repositoryClass="Augustine\PlatformBundle\Entity\ActualiteRepository")
  */
-class Actualite
-{
+class Actualite {
+
     /**
      * @var integer
      *
@@ -34,6 +35,20 @@ class Actualite
 
     /**
      * @var string
+     * 
+     * @ORM\Column(name="path", type="string", length=255)
+     * 
+     * @Assert\NotBlank()
+     */
+    private $path;
+
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    private $file;
+
+    /**
+     * @var string
      *
      * @ORM\Column(name="texte", type="text")
      */
@@ -52,10 +67,11 @@ class Actualite
      * @ORM\Column(name="dateCrea", type="date")
      */
     private $dateCrea;
-    
-    
+
     function __construct() {
         $this->dateCrea = new \DateTime();
+        $this->dateActu = new \DateTime();
+//        $this->path = 'no-picture.jpg';   
     }
 
     /**
@@ -64,22 +80,21 @@ class Actualite
      * @ORM\Column(name="isHisto", type="boolean", nullable=true)
      */
     private $isHisto;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="Augustine\PlatformBundle\Entity\TypeActu")
      * @ORM\JoinColumn(name="idTypeActu", referencedColumnName="id")
      * 
      */
     private $typeActu;
-
+    private $temp;
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -89,10 +104,9 @@ class Actualite
      * @param string $titre
      * @return Actualite
      */
-    public function setTitre($titre)
-    {
+    public function setTitre($titre) {
         $this->titre = $titre;
-    
+
         return $this;
     }
 
@@ -101,8 +115,7 @@ class Actualite
      *
      * @return string 
      */
-    public function getTitre()
-    {
+    public function getTitre() {
         return $this->titre;
     }
 
@@ -112,10 +125,9 @@ class Actualite
      * @param string $texte
      * @return Actualite
      */
-    public function setTexte($texte)
-    {
+    public function setTexte($texte) {
         $this->texte = $texte;
-    
+
         return $this;
     }
 
@@ -124,8 +136,7 @@ class Actualite
      *
      * @return string 
      */
-    public function getTexte()
-    {
+    public function getTexte() {
         return $this->texte;
     }
 
@@ -135,10 +146,9 @@ class Actualite
      * @param \DateTime $dateActu
      * @return Actualite
      */
-    public function setDateActu($dateActu)
-    {
+    public function setDateActu($dateActu) {
         $this->dateActu = $dateActu;
-    
+
         return $this;
     }
 
@@ -147,8 +157,7 @@ class Actualite
      *
      * @return \DateTime 
      */
-    public function getDateActu()
-    {
+    public function getDateActu() {
         return $this->dateActu;
     }
 
@@ -158,10 +167,9 @@ class Actualite
      * @param \DateTime $dateCrea
      * @return Actualite
      */
-    public function setDateCrea($dateCrea)
-    {
+    public function setDateCrea($dateCrea) {
         $this->dateCrea = $dateCrea;
-    
+
         return $this;
     }
 
@@ -170,8 +178,7 @@ class Actualite
      *
      * @return \DateTime 
      */
-    public function getDateCrea()
-    {
+    public function getDateCrea() {
         return $this->dateCrea;
     }
 
@@ -181,10 +188,9 @@ class Actualite
      * @param boolean $isHisto
      * @return Actualite
      */
-    public function setIsHisto($isHisto)
-    {
+    public function setIsHisto($isHisto) {
         $this->isHisto = $isHisto;
-    
+
         return $this;
     }
 
@@ -193,8 +199,7 @@ class Actualite
      *
      * @return boolean 
      */
-    public function getIsHisto()
-    {
+    public function getIsHisto() {
         return $this->isHisto;
     }
 
@@ -204,10 +209,9 @@ class Actualite
      * @param \Augustine\PlatformBundle\Entity\TypeActu $typeActu
      * @return Actualite
      */
-    public function setTypeActu(\Augustine\PlatformBundle\Entity\TypeActu $typeActu = null)
-    {
+    public function setTypeActu(\Augustine\PlatformBundle\Entity\TypeActu $typeActu = null) {
         $this->typeActu = $typeActu;
-    
+
         return $this;
     }
 
@@ -216,8 +220,139 @@ class Actualite
      *
      * @return \Augustine\PlatformBundle\Entity\TypeActu 
      */
-    public function getTypeActu()
-    {
+    public function getTypeActu() {
         return $this->typeActu;
     }
+
+    /**
+     * Set path
+     *
+     * @param string $path
+     * @return Actualite
+     */
+    public function setPath($path) {
+        $this->path = $path;
+
+        return $this;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string 
+     */
+    public function getPath() {
+        return $this->path;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFile() {
+        return $this->file;
+    }
+
+ /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+        // check if we have an old image path
+        if (is_file($this->getAbsolutePath())) {
+            // store the old name to delete after the update
+            $this->temp = $this->getAbsolutePath();
+            $this->path = null;
+        } else {
+            $this->path = 'initial';
+        }
+    }
+
+    //Fonctions du upload
+
+    public function getWebPath() {
+        return null === $this->path ? null : $this->getUploadDir() . '/' . $this->path;
+    }
+
+    protected function getUploadRootDir() {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__ . '/../../../../web/' . $this->getUploadDir();
+    }
+
+    protected function getUploadDir() {
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return 'uploads/actu';
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        if (null !== $this->getFile()) {
+            $this->path = $this->getFile()->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
+    {
+        if (null === $this->getFile()) {
+            return;
+        }
+
+        // check if we have an old image
+        if (isset($this->temp)) {
+            // delete the old image
+            unlink($this->temp);
+            // clear the temp image path
+            $this->temp = null;
+        }
+
+        // you must throw an exception here if the file cannot be moved
+        // so that the entity is not persisted to the database
+        // which the UploadedFile move() method does
+        $this->getFile()->move(
+            $this->getUploadRootDir(),
+            $this->id.'.'.$this->getFile()->guessExtension()
+        );
+
+        $this->setFile(null);
+    }
+
+    /**
+     * @ORM\PreRemove()
+     */
+    public function storeFilenameForRemove()
+    {
+        $this->temp = $this->getAbsolutePath();
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        if (isset($this->temp)) {
+            unlink($this->temp);
+        }
+    }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->path
+            ? null
+            : $this->getUploadRootDir().'/'.$this->id.'.'.$this->path;
+    }
+
 }
