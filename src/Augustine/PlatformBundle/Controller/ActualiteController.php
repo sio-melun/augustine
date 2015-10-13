@@ -18,7 +18,7 @@ class ActualiteController extends Controller {
      */
     public function indexAction() {
         $em = $this->getDoctrine()->getManager();
-        // $actualitealites = $em->getRepository('AugustinePlatformBundle:Actualite')->findAll();
+        // $actualites = $em->getRepository('AugustinePlatformBundle:Actualite')->findAll();
 
         $repo = $em->getRepository('AugustinePlatformBundle:Actualite');
 

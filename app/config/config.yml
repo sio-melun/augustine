@@ -70,3 +70,9 @@ services:
        class: Twig_Extensions_Extension_Text
        tags:
            - { name: twig.extension }
+
+fos_user:
+    db_driver: orm
+    # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: AugustinePlatformBundle\Entity\User
