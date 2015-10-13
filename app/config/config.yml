@@ -75,4 +75,4 @@ fos_user:
     db_driver: orm
     # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: AugustinePlatformBundle\Entity\User
+    user_class: Augustine\PlatformBundle\Entity\User

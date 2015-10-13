@@ -1,7 +1,7 @@
 <?php
 // src/AugustinePlatformBundle/Entity/User.php
 
-namespace AugustinePlatformBundle\Entity;
+namespace Augustine\PlatformBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
