@@ -9,7 +9,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 
-
 class ActualiteController extends Controller {
 
     /**
@@ -61,38 +60,6 @@ class ActualiteController extends Controller {
     }
 
     /**
-     * @Route("/ajouter", name="ajouter")
-     * @Template()
-     */
-    public function ajouterAction() {
-  
-        $actualite = new Actualite();
-        $actualiteType = new ActualiteType();
-
-        $form = $this->createForm($actualiteType, $actualite);
-
-        $request = $this->getRequest();
-
-            $form->handleRequest($request);
-
-            if ($form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-
-                $actualite->upload();
-
-                $em->persist($actualite);
-                $em->flush();
-                
-                return $this->render('AugustinePlatformBundle:Actualite:index.html.twig');
-
-            }
-
-        return array(
-            'form' => $form->createView(),
-        );
-    }
-
-    /**
      * @Route("/etatblissement", name="etablissement")
      * @Template()
      */
@@ -109,38 +76,6 @@ class ActualiteController extends Controller {
     public function voirAction(Actualite $actualite) {
         return array(
             'actualite' => $actualite,
-        );
-    }
-
-    /**
-     * @Route("/editer/{id}", name="editer")
-     * @Template()
-     */
-    public function editerAction(Actualite $actualite) {
-        $em = $this->getDoctrine()->getEntityManager();
-
-        $form = $this->createForm(new ActualiteType(), $actualite);
-
-        $request = $this->getRequest();
-
-        if ($request->isMethod('POST')) {
-            $form->bind($request);
-
-            if ($form->isValid()) {
-                $em->persist($actualite);
-                $em->flush();
-
-                return $this->redirect(
-                                $this->generateUrl("index", array(
-                                    'id' => $actualite->getId()
-                )));
-            }
-        }
-
-        return array(
-            'id' => $actualite->getId(),
-            'titre' => $actualite->getTitre(),
-            'form' => $form->createView(),
         );
     }
 

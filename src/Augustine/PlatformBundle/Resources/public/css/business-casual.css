@@ -41,42 +41,42 @@ hr {
     display: none;
 }
 .dropdown-menu {
-position: absolute;
-  top: 110%;
-  left: 0;
-  display: none;
-  float: left;
-  padding: 10px;
-  /*margin: 100px ;
-  margin-left: 2px;
-  margin-right: 2px ;
-    font-size: 14px;
-  list-style: none;*/
-  background-color: rgba(0, 0, 0, .175);
-  border-radius: 6px;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    display: none;
+    float: left;
+    padding: 10px;
+    /*margin: 100px ;
+    margin-left: 2px;
+    margin-right: 2px ;
+      font-size: 14px;
+    list-style: none;*/
+    background-color: rgba(0, 0, 0, .175);
+    border-radius: 6px;
 }
 .div-transPOP {
-padding-top: 5px;
-background-color: rgba(0, 0, 0, 0.5);
-min-height: 330px;
+    padding-top: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-height: 330px;
 
-color: #fff;
--webkit-border-radius: 5px;
--moz-border-radius: 5px;
-border-radius: 5px;
+    color: #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 
 }
-        .div-transPOP i {
-            margin-left: 10px; 
-            margin-right: 10px; 
-            color: #F47900;
-        }
-        .div-transPOP span {
-            color: #ff0000;
-        }
-        .div-transPOP button {
-            background-color: #F47900;
-        }
+.div-transPOP i {
+    margin-left: 10px; 
+    margin-right: 10px; 
+    color: #F47900;
+}
+.div-transPOP span {
+    color: #ff0000;
+}
+.div-transPOP button {
+    background-color: #F47900;
+}
 .navbar-brand {
     text-transform: uppercase;
     font-weight: 900;
@@ -211,6 +211,7 @@ footer p {
 
     .navbar-nav>li>a {
         line-height: normal;
+        font-size: 14px;
     }
 
     .navbar-nav {
