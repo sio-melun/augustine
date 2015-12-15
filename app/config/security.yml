@@ -7,7 +7,6 @@ security:
     role_hierarchy:
         ROLE_USER:         ROLE_USER
         ROLE_ADMIN:       ROLE_ADMIN
-        ROLE_SUPER_ADMIN:  ROLE_SADMIN
 
     providers:
         fos_userbundle:
@@ -32,5 +31,5 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/ajouter, role: ROLE_ADMIN }
-        - { path: ^/admin/, role: ROLE_SADMIN }
+        - { path: ^/admin/ajouter, role: ROLE_USER }
+        - { path: ^/admin/, role: ROLE_ADMIN }

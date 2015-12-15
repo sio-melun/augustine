@@ -50,32 +50,33 @@ class MemberController extends Controller {
      * @Template()
      */
     public function editerAction(Actualite $actualite) {
-        $em = $this->getDoctrine()->getEntityManager();
 
-        $form = $this->createForm(new ActualiteType(), $actualite);
+            $em = $this->getDoctrine()->getEntityManager();
 
-        $request = $this->getRequest();
+            $form = $this->createForm(new ActualiteType(), $actualite);
 
-        if ($request->isMethod('POST')) {
-            $form->bind($request);
+            $request = $this->getRequest();
 
-            if ($form->isValid()) {
-                $em->persist($actualite);
-                $em->flush();
+            if ($request->isMethod('POST')) {
+                $form->bind($request);
 
-                return $this->redirect(
-                                $this->generateUrl("index", array(
-                                    'id' => $actualite->getId()
-                )));
+                if ($form->isValid()) {
+                    $em->persist($actualite);
+                    $em->flush();
+
+                    return $this->redirect(
+                                    $this->generateUrl("index", array(
+                                        'id' => $actualite->getId()
+                    )));
+                }
             }
-        }
 
-        return array(
-            'id' => $actualite->getId(),
-            'titre' => $actualite->getTitre(),
-            'form' => $form->createView(),
-        );
-    }
+            return array(
+                'id' => $actualite->getId(),
+                'titre' => $actualite->getTitre(),
+                'form' => $form->createView(),
+            );
+        }
 
     /**
      * @Route("/supprimer/{id}", name="supprimer")

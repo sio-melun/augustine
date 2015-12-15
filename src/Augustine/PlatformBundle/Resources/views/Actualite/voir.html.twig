@@ -1,6 +1,6 @@
 {# src/Augustine/PlatformBundle/Resources/views/Actualite/voir.html.twig #}
 
-{% extends "AugustinePlatformBundle::layout.html.twig" %}
+{% extends "layout.html.twig" %}
 
 {% block title %}
     Accueil -{{ parent() }}
@@ -13,10 +13,12 @@
                 <div class="col-lg-12 text-center">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                            {% if is_granted('ROLE_ADMIN') %}
                             <h2><a href="{{ path("editer", { id : actualite.id }) }}" title="Editer cet article">Modifier</a>
                              || 
                             <a href="{{ path("supprimer", { id : actualite.id }) }}" title="Supprimer cet article">Supprimer</a>
                             </h2>
+                            {%endif%}
                             <h3>{{actualite.titre}} <br /> <small>{{actualite.dateCrea|date('d M Y')}}</small></h3>
                             <img class="img-responsive col-sm-6 col-md-6 col-lg-offset-3" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt="">
                         </div>
