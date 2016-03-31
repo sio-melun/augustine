@@ -109,7 +109,8 @@
                         {%endif%}
                         {% for actualite in actualites %}
                             <div class="col-md-4 text-center">
-                                <a href="{{path('voir', {id : actualite.id})}}"  title='En savoir plus'><img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt=""></a>
+                                <a href="{{path('voir', {id : actualite.id})}}"  title='En savoir plus'>
+                                    <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt=""></a>
 
                                 <h3>{{actualite.titre}} <br />
                                     <small>{{actualite.dateCrea|date('d M Y')}}</small>
