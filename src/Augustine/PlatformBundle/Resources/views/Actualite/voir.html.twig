@@ -14,10 +14,15 @@
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="col-sm-12 col-md-12 col-lg-12 text-center">
                             {% if is_granted('ROLE_ADMIN') %}
-                            <h2><a href="{{ path("editer", { id : actualite.id }) }}" title="Editer cet article">Modifier</a>
-                             || 
-                            <a href="{{ path("supprimer", { id : actualite.id }) }}" title="Supprimer cet article">Supprimer</a>
-                            </h2>
+                                <h2>
+                                    <a href="{{ path("editer", { id : actualite.id }) }}" type="button" class="btn btn-warning" title="Modifier cet article">
+                                        <span class="glyphicon glyphicon-plus-sign"></span> Modifier un article
+                                    </a>
+                                    || 
+                                    <a href="{{ path("supprimer", { id : actualite.id }) }}" type="button" class="btn btn-danger" title="Supprimer cet article">
+                                        <span class="glyphicon glyphicon glyphicon-remove"></span> Supprimer
+                                    </a>
+                                </h2>
                             {%endif%}
                             <h3>{{actualite.titre}} <br /> <small>{{actualite.dateCrea|date('d M Y')}}</small></h3>
                             <img class="img-responsive col-sm-6 col-md-6 col-lg-offset-3" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt="">

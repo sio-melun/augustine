@@ -34,7 +34,6 @@
                                 <img src="{{asset('bundles/augustineplatform/img/banniere/bleuF.jpg')}}" class="img-responsive" alt="" />
                             </a>
                         </div>
-                        <!--<img src="{{asset('bundles/augustineplatform/img/banniere/grp.jpg')}}" class="img-responsive" alt="" />-->
                     </div>
                 </div>
             </div>
@@ -91,7 +90,7 @@
         <div class="container">
             <div class="row">
                 <div class="box">
-                    <div class="col-lg-12 text-center">
+                    <div class="col-lg-12">
                         <hr>
                         <h2 class="intro-text text-center">
 
@@ -102,16 +101,15 @@
                             <img class="img-responsive img-border-left" src="{{asset('bundles/augustineplatform/img/slide-2.jpg')}}" alt="">
                         </div>-->
                         {% if is_granted('ROLE_USER') %}
-                            <div class="col-md-4 text-center">
-                                <h2><a href="{{ path("ajouter") }}" title="Ajouter un article"><img class="img-responsive" src="{{asset('bundles/augustineplatform/img/addActu.png')}}" alt="" /></a></h2>
-
+                            <div class="col-md-12">
+                                <a href="{{ path("ajouter") }}" type="button" class="btn btn-warning"><span class="glyphicon glyphicon-plus-sign"></span> Ajouter un article</a>
                             </div>
                         {%endif%}
                         {% for actualite in actualites %}
-                            <div class="col-md-4 text-center">
+                            <div class="col-md-4">
                                 <a href="{{path('voir', {id : actualite.id})}}"  title='En savoir plus'>
+                                    <br />
                                     <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt=""></a>
-
                                 <h3>{{actualite.titre}} <br />
                                     <small>{{actualite.dateCrea|date('d M Y')}}</small>
                                 </h3>

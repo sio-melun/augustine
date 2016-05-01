@@ -37,7 +37,7 @@ class MemberController extends Controller {
             $em->persist($actualite);
             $em->flush();
 
-            return $this->render('AugustinePlatformBundle:Member:index.html.twig');
+            return $this->redirectToRoute("index");
         }
 
         return array(
