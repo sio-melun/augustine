@@ -3,187 +3,189 @@
 {% extends "layout.html.twig" %}
 
 {% block title %}
-    {{ parent() }} - Accueil
+  {{ parent() }} - Accueil
 {% endblock %}
 
 {% block augustineplatform_body %}
 
-    <!-- /.SECTION HOME -->
-    <div id="home">
-        <div class="container">
-            <div class="row">
-                <div class="box">
-                    <div class="col-md-12 col-lg-12 text-center">
-                        <div class="col-lg-3 col-md-3 col-sm-3 ">
-                            <a href="{{ path('index') }}#challenge">
-                                <img src="{{asset('bundles/augustineplatform/img/banniere/rougeF.jpg')}}" class="img-responsive" alt="" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 ">
-                            <a href="{{ path('index') }}#etablissement">
-                                <img src="{{asset('bundles/augustineplatform/img/banniere/vertF.jpg')}}" class="img-responsive" alt="" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 ">
-                            <a href="{{ path('sponsors') }}">                       
-                                <img src="{{asset('bundles/augustineplatform/img/banniere/jauneF.jpg')}}" class="img-responsive" alt="" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 ">
-                            <a href="{{ path('index') }}#enjeux">                        
-                                <img src="{{asset('bundles/augustineplatform/img/banniere/bleuF.jpg')}}" class="img-responsive" alt="" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
+  <!-- /.SECTION HOME -->
+  <div id="home">
+    <div class="container">
+      <div class="row">
+        <div class="box">
+          <div class="col-md-12 col-lg-12 text-center">
+            <div class="col-lg-3 col-md-3 col-sm-3 ">
+              <a href="{{ path('index') }}#challenge">
+                <img src="{{asset('bundles/augustineplatform/img/banniere/rougeF.jpg')}}" class="img-responsive" alt="" />
+              </a>
             </div>
-        </div>
-    </div>
-    <!-- /.SECTION HOME END -->
-
-    <!-- /.SECTION CHALLENGE -->
-    <div id="challenge">
-        <div class="container">
-            <div class="row">
-                <div class="box">
-                    <div class="col-md-12 col-lg-12 text-center">
-                        <hr>
-                        <h2 class="intro-text text-center">
-                            <strong> Challenge : </strong> Educ'Eco
-                        </h2>
-                        <hr>
-                        <div class="col-sm-4 text-center">
-                            <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt="">
-                            <h3>La team <br />
-                                <small>2015</small>
-                            </h3>
-                        </div>
-                        <div class="col-sm-4 text-center">
-                            <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/Augustine.jpg')}}" alt="">
-                            <h3>Le véhicule <br />
-                                <small>Augustine</small>
-                            </h3>
-                        </div>
-                        <div class="col-sm-4 text-center">
-                            <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/chall.jpg')}}" alt="">
-                            <a href="http://www.educeco.net/" title="La page du challenge"><h3>Le challenge
-                                    <small>EcoMarrathon</small>
-                                </h3></a>
-                        </div>
-                        <div class="col-lg-12">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
-                            <p>
-                                Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 ">
+              <a href="{{ path('index') }}#etablissement">
+                <img src="{{asset('bundles/augustineplatform/img/banniere/vertF.jpg')}}" class="img-responsive" alt="" />
+              </a>
             </div>
-        </div>
-    </div>
-    <!-- /.SECTION CHALLENGE END -->
-
-    <!-- /.SECTION ACTUALITE -->
-    <div id="actualite">
-        <div class="container">
-            <div class="row">
-                <div class="box">
-                    <div class="col-lg-12">
-                        <hr>
-                        <h2 class="intro-text text-center">
-
-                            <strong>Nos derniers évènements :</strong> Actualite
-                        </h2>
-                        <hr>
-                        <!--<div class="col-md-6">
-                            <img class="img-responsive img-border-left" src="{{asset('bundles/augustineplatform/img/slide-2.jpg')}}" alt="">
-                        </div>-->
-                        {% if is_granted('ROLE_USER') %}
-                            <div class="col-md-12">
-                                <a href="{{ path("ajouter") }}" type="button" class="btn btn-warning"><span class="glyphicon glyphicon-plus-sign"></span> Ajouter un article</a>
-                            </div>
-                        {%endif%}
-                        {% for actualite in actualites %}
-                            <div class="col-md-4">
-                                <a href="{{path('voir', {id : actualite.id})}}"  title='En savoir plus'>
-                                    <br />
-                                    <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt=""></a>
-                                <h3>{{actualite.titre}} <br />
-                                    <small>{{actualite.dateCrea|date('d M Y')}}</small>
-                                </h3>
-                                <div class="text-justify">
-                                    <p>
-                                        {{actualite.texte | truncate(100, true, '...')}}
-                                    </p>
-                                    <p>
-                                        <a href="{{path('voir', {id : actualite.id})}}"  title='En savoir plus'> Voir </a>
-                                    </p>
-                                </div>
-                            </div>
-                        {% endfor %}
-
-                    </Div>
-                </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 ">
+              <a href="{{ path('sponsors') }}">                       
+                <img src="{{asset('bundles/augustineplatform/img/banniere/jauneF.jpg')}}" class="img-responsive" alt="" />
+              </a>
             </div>
-        </div>
-    </div>
-    <!-- /.SECTION ACTUALITE END -->
-
-    <!-- /.SECTION OBJECTIF -->
-    <div id="enjeux">
-        <div class="container">
-            <div class="row">
-                <div class="box">
-                    <div class="col-lg-12 text-center">
-                        <hr>
-                        <h2 class="intro-text text-center">
-                            <strong>Les Enjeux :</strong> Nos objectifs
-                        </h2>
-                        <hr>
-                        <div class="col-sm-6 text-center">
-                            <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Enjeux/class1.jpg')}}" alt="">
-                            <h3>Position
-                                <small>8ème</small>
-                            </h3>
-                        </div>
-                        <div class="col-sm-6 text-center">
-                            <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Enjeux/class2.jpg')}}" alt="">
-                            <h3>Position
-                                <small>6ème</small>
-                            </h3>
-                        </div>
-                        <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                    </div>
-                </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 ">
+              <a href="{{ path('index') }}#enjeux">                        
+                <img src="{{asset('bundles/augustineplatform/img/banniere/bleuF.jpg')}}" class="img-responsive" alt="" />
+              </a>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- /.SECTION OBJECTIF END -->
+  </div>
+  <!-- /.SECTION HOME END -->
 
-    <!-- /.SECTION ETABLISSEMENT -->
-    <div id="etablissement">
-        <div class="container">
-            <div class="row">
-                <div class="box">
-                    <hr>
-                    <h2 class="intro-text text-center">
-                        <strong>Les établissements partenaires :</strong> Etablissement
-                    </h2>
-                    <hr>
-                    <div class="col-lg-6"><img class="img-responsive img-border-left" src="{{asset('bundles/augustineplatform/img/sponsor/LDV.jpg')}}" alt=""></div>
-                    <div class="col-lg-6"><img class="img-responsive img-border-left" src="{{asset('bundles/augustineplatform/img/sponsor/diderot.jpg')}}" alt=""></div>
-                    <div class="col-lg-12 text-center">
-                        <hr />
-                        <p>Le projet Augustine est propulsé par deux Lycées. Une qui se trouve à Melun, le <a href="http://www.vinci-melun.org/" target="_blank">lycée Léonard de Vinci</a>, une autre à Paris, le <a href="http://www.diderot.org/index.php" target="_blank"> lycée Diderot Paris</a>.</p>
-                        <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                    </div>
-                </div>
+  <!-- /.SECTION CHALLENGE -->
+  <div id="challenge">
+    <div class="container">
+      <div class="row">
+        <div class="box">
+          <div class="col-md-12 col-lg-12 text-center">
+            <hr>
+            <h2 class="intro-text text-center">
+              <strong> Challenge : </strong> Educ'Eco
+            </h2>
+            <hr>
+            <div class="col-sm-4 text-center">
+              <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt="">
+              <h3>La team <br />
+                <small>2015</small>
+              </h3>
             </div>
+            <div class="col-sm-4 text-center">
+              <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/Augustine.jpg')}}" alt="">
+              <h3>Le véhicule <br />
+                <small>Augustine</small>
+              </h3>
+            </div>
+            <div class="col-sm-4 text-center">
+              <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/chall.jpg')}}" alt="">
+              <a href="http://www.educeco.net/" title="La page du challenge"><h3>Le challenge
+                  <small>EcoMarrathon</small>
+                </h3></a>
+            </div>
+            <div class="col-lg-12">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+              <p>
+                Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- /.SECTION ETABLISSEMENT END -->
+  </div>
+  <!-- /.SECTION CHALLENGE END -->
+
+  <!-- /.SECTION ACTUALITE -->
+  <div id="actualite">
+    <div class="container">
+      <div class="row">
+        <div class="box">
+          <div class="col-lg-12">
+            <hr>
+            <h2 class="intro-text text-center">
+
+              <strong>Nos derniers évènements :</strong> Actualite
+            </h2>
+            <hr>
+            <!--<div class="col-md-6">
+                <img class="img-responsive img-border-left" src="{{asset('bundles/augustineplatform/img/slide-2.jpg')}}" alt="">
+            </div>-->
+            {% if is_granted('ROLE_USER') %}
+              <div class="col-md-12">
+                <a href="{{ path("ajouter") }}" type="button" class="btn btn-warning"><span class="glyphicon glyphicon-plus-sign"></span> Ajouter un article</a>
+              </div>
+            {%endif%}
+            {% for actualite in actualites %}
+              <div class="col-md-4">
+                <a href="{{path('voir', {id : actualite.id})}}"  title='En savoir plus'>
+                  <br />
+                  <img class="img-responsive" src="{{ app.request.basePath }}/images/actu/{{actualite.path}}" alt="{{actualite.path}}" />
+                  {#    <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt="">#}
+                </a>
+                <h3>{{actualite.titre}} <br />
+                  <small>{{actualite.dateCrea|date('d M Y')}}</small>
+                </h3>
+                <div class="text-justify">
+                  <p>
+                    {{actualite.texte | truncate(100, true, '...')}}
+                  </p>
+                  <p>
+                    <a href="{{path('voir', {id : actualite.id})}}"  title='En savoir plus'> Voir </a>
+                  </p>
+                </div>
+              </div>
+            {% endfor %}
+
+          </Div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.SECTION ACTUALITE END -->
+
+  <!-- /.SECTION OBJECTIF -->
+  <div id="enjeux">
+    <div class="container">
+      <div class="row">
+        <div class="box">
+          <div class="col-lg-12 text-center">
+            <hr>
+            <h2 class="intro-text text-center">
+              <strong>Les derniers résultats</strong> 
+            </h2>
+            <hr>
+            <div class="col-sm-6 text-center">
+              <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Enjeux/class1.jpg')}}" alt="">
+              <h3>Position
+                <small>8ème</small>
+              </h3>
+            </div>
+            <div class="col-sm-6 text-center">
+              <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Enjeux/class2.jpg')}}" alt="">
+              <h3>Position
+                <small>6ème</small>
+              </h3>
+            </div>
+            <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.SECTION OBJECTIF END -->
+
+  <!-- /.SECTION ETABLISSEMENT -->
+  <div id="etablissement">
+    <div class="container">
+      <div class="row">
+        <div class="box">
+          <hr>
+          <h2 class="intro-text text-center">
+            <strong>Les établissements partenaires :</strong> Etablissement
+          </h2>
+          <hr>
+          <div class="col-lg-6"><img class="img-responsive img-border-left" src="{{asset('bundles/augustineplatform/img/sponsor/LDV.jpg')}}" alt=""></div>
+          <div class="col-lg-6"><img class="img-responsive img-border-left" src="{{asset('bundles/augustineplatform/img/sponsor/diderot.jpg')}}" alt=""></div>
+          <div class="col-lg-12 text-center">
+            <hr />
+            <p>Le projet Augustine est propulsé par deux Lycées. Une qui se trouve à Melun, le <a href="http://www.vinci-melun.org/" target="_blank">lycée Léonard de Vinci</a>, une autre à Paris, le <a href="http://www.diderot.org/index.php" target="_blank"> lycée Diderot Paris</a>.</p>
+            <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.SECTION ETABLISSEMENT END -->
 {% endblock %}

@@ -12,11 +12,13 @@
                     <div class="col-md-12 col-lg-12 text-center">
                         <hr>
                         <h2 class="intro-text text-center">
-                            <strong>Editer l'annonce : </strong> {{titre}}
+                            <strong>Editer l'annonce : </strong> {{titre}} 
                         </h2>
                         <hr>
                         <div class="col-md-4 col-lg-4">
-                            <img class="img-responsive" src="{{asset('bundles/augustineplatform/img/Challenge/grp.jpg')}}" alt="">
+                            <img class="img-responsive" src="{{ app.request.basePath }}/images/actu/{{actualite.path}}" alt="{{actualite.path}}" />
+                           {# <img src="{{ app.request.basePath }}{{ vich_uploader_asset(actualite, 'imageFile') }}" alt="{{ actualite.path }}" />                            {# <img src="{{ app.request.basePath }}{{ vich_uploader_asset(actualite, 'imageFile') }}" alt="{{ actualite.path }}" /> #}
+
                         </div>
                         <div class="form-group col-md-8" id="accordion" role="tablist" aria-multiselectable="true">
 {#                            <form action="{{ path ('editer', {id : id}) }}" method ="post">#}
@@ -31,11 +33,13 @@
                                     {{ form_row(form.texte, {'attr':{'class':'form-control'}})}}
                                 </div>
                                 <div class="form-group col-md-4 col-lg-4">
-                                    {{ form_row(form.isHisto,{'label':'Fais historique :'} ,{'attr':{'class':'checkbox'}}) }}
+                                    {{ form_row(form.isHisto,{'label':'Fait historique :'} ,{'attr':{'class':'checkbox'}}) }}
                                 </div>
+                                {#
                                 <div class="form-group col-md-4 col-lg-4">
                                     {{ form_row(form.typeActu, {'attr':{'class':'form-control'}})}}
                                 </div>
+                                #}
                                 <div class="form-group col-md-4 col-lg-4">
                                     {{ form_row(form.file)}}
                                 </div>
@@ -52,5 +56,4 @@
             </div>
         </div>
     </div>
-</div>
 {% endblock %}

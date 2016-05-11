@@ -76,3 +76,4 @@ fos_user:
     # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Augustine\PlatformBundle\Entity\User
+    

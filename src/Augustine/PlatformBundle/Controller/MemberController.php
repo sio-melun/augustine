@@ -19,29 +19,30 @@ class MemberController extends Controller {
      * @Template()
      */
     public function ajouterAction() {
-
         $actualite = new Actualite();
         $actualiteType = new ActualiteType();
 
         $form = $this->createForm($actualiteType, $actualite);
-
+        
         $request = $this->getRequest();
-
+ 
         $form->handleRequest($request);
-
+        
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
 
             $actualite->upload();
+          
+            $em = $this->getDoctrine()->getManager();
 
             $em->persist($actualite);
             $em->flush();
-
+            // var_dump($actualite); exit();
             return $this->redirectToRoute("index");
         }
 
         return array(
             'form' => $form->createView(),
+            'actualite' => $actualite
         );
     }
 
@@ -50,7 +51,7 @@ class MemberController extends Controller {
      * @Template()
      */
     public function editerAction(Actualite $actualite) {
-
+            var_dump($actualite->getTitre());
             $em = $this->getDoctrine()->getEntityManager();
 
             $form = $this->createForm(new ActualiteType(), $actualite);
@@ -59,22 +60,23 @@ class MemberController extends Controller {
 
             if ($request->isMethod('POST')) {
                 $form->bind($request);
-
-                if ($form->isValid()) {
+                if ($form->isValid()) {                  
+                    $actualite->removeUpload(); // don't work
+                    $actualite->upload();   
                     $em->persist($actualite);
                     $em->flush();
-
                     return $this->redirect(
-                                    $this->generateUrl("index", array(
-                                        'id' => $actualite->getId()
+                               $this->generateUrl("index", array(
+                              'id' => $actualite->getId()
                     )));
-                }
+               }
             }
 
             return array(
                 'id' => $actualite->getId(),
                 'titre' => $actualite->getTitre(),
                 'form' => $form->createView(),
+                'actualite' => $actualite
             );
         }
 

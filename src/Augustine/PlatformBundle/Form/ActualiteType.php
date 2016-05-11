@@ -20,12 +20,14 @@ class ActualiteType extends AbstractType {
                 ->add('dateActu')
                 ->add('isHisto', 'checkbox', array('required' => false))
                 ->add('file')
+            /*
                 ->add('typeActu', 'entity', array(
                     'class' => 'AugustinePlatformBundle:TypeActu',
                     'property' => 'libelle',
                     'multiple' => false,
-                    'label' => 'Nom ressource'
+                    'label' => 'Type ressource'
                 ))
+             */ 
         ;
     }
 

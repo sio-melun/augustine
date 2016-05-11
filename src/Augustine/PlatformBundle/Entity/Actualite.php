@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Actualite
- *
+ * @todo when update old ressource file image is not delete... 
  * @ORM\Table(name = "actualite")
  * @ORM\Entity(repositoryClass="Augustine\PlatformBundle\Entity\ActualiteRepository")
  */
@@ -36,9 +36,8 @@ class Actualite {
     /**
      * @var string
      * 
-     * @ORM\Column(name="path", type="string", length=255)
+     * @ORM\Column(name="path", type="string", length=255, nullable=true)
      * 
-     * @Assert\NotBlank()
      */
     private $path;
 
@@ -68,10 +67,10 @@ class Actualite {
      */
     private $dateCrea;
 
+    
     function __construct() {
         $this->dateCrea = new \DateTime();
         $this->dateActu = new \DateTime();
-//        $this->path = 'no-picture.jpg';   
     }
 
     /**
@@ -83,7 +82,7 @@ class Actualite {
 
     /**
      * @ORM\ManyToOne(targetEntity="Augustine\PlatformBundle\Entity\TypeActu")
-     * @ORM\JoinColumn(name="idTypeActu", referencedColumnName="id")
+     * @ORM\JoinColumn(name="idTypeActu", referencedColumnName="id", nullable=false))
      * 
      */
     private $typeActu;
@@ -211,7 +210,6 @@ class Actualite {
      */
     public function setTypeActu(\Augustine\PlatformBundle\Entity\TypeActu $typeActu = null) {
         $this->typeActu = $typeActu;
-
         return $this;
     }
 
@@ -254,7 +252,8 @@ class Actualite {
         return $this->file;
     }
 
- /**
+    
+    /**
      * Sets file.
      *
      * @param UploadedFile $file
@@ -268,26 +267,18 @@ class Actualite {
             $this->temp = $this->getAbsolutePath();
             $this->path = null;
         } else {
-            $this->path = 'initial';
+            // $this->path = 'initial';
         }
     }
-
+    
     //Fonctions du upload
-
     public function getWebPath() {
         return null === $this->path ? null : $this->getUploadDir() . '/' . $this->path;
     }
-
     protected function getUploadRootDir() {
         // the absolute directory path where uploaded
         // documents should be saved
         return __DIR__ . '/../../../../web/' . $this->getUploadDir();
-    }
-
-    protected function getUploadDir() {
-        // get rid of the __DIR__ so it doesn't screw up
-        // when displaying uploaded doc/image in the view.
-        return 'uploads/actu';
     }
 
     /**
@@ -300,8 +291,10 @@ class Actualite {
             $this->path = $this->getFile()->guessExtension();
         }
     }
-
-    /**
+    
+    /** 
+     * Also call before persit by controller
+     * 
      * @ORM\PostPersist()
      * @ORM\PostUpdate()
      */
@@ -310,7 +303,6 @@ class Actualite {
         if (null === $this->getFile()) {
             return;
         }
-
         // check if we have an old image
         if (isset($this->temp)) {
             // delete the old image
@@ -318,18 +310,18 @@ class Actualite {
             // clear the temp image path
             $this->temp = null;
         }
-
         // you must throw an exception here if the file cannot be moved
         // so that the entity is not persisted to the database
         // which the UploadedFile move() method does
+        $fileName = md5(uniqid())
+                    . '.' .$this->getFile()->guessExtension();
         $this->getFile()->move(
-            $this->getUploadRootDir(),
-            $this->id.'.'.$this->getFile()->guessExtension()
-        );
-
+            $this->getUploadRootDir(), $fileName);
+       
         $this->setFile(null);
+        $this->path = $fileName;
     }
-
+    
     /**
      * @ORM\PreRemove()
      */
@@ -337,7 +329,7 @@ class Actualite {
     {
         $this->temp = $this->getAbsolutePath();
     }
-
+   
     /**
      * @ORM\PostRemove()
      */
@@ -347,12 +339,19 @@ class Actualite {
             unlink($this->temp);
         }
     }
-
     public function getAbsolutePath()
     {
         return null === $this->path
             ? null
             : $this->getUploadRootDir().'/'.$this->id.'.'.$this->path;
     }
+    
 
+    protected function getUploadDir() {
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return 'images/actu';
+    }
+
+ 
 }
